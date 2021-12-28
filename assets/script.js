@@ -48,4 +48,6 @@ function fetchCocktails(event) {
 
 searchButton.addEventListener("click",fetchCocktails);
 
+searchButton.addEventListener("click",fetchCocktails);
+
 
