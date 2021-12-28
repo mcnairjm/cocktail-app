@@ -18,8 +18,9 @@ function fetchCocktails(event) {
 
 
   var inputEl = searchInputEl.value.toLowerCase().trim();
+  var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + inputEl;
+
   event.preventDefault();
-  var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + inputEl ;
   
     fetch(apiUrl)
       .then(function (res) {
