@@ -1,4 +1,4 @@
-/*function fetchCocktails() {
+function fetchCocktails() {
     var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
 var searchButton = document.getElementById("search-button");
 var searchInputEl = document.getElementById("cocktail-search-id")
@@ -44,11 +44,17 @@ function fetchCocktails(event) {
         console.error(err);
       });
       searchInputEl.value =""
+  }
+
+  fetchCocktails()
+  searchButton.addEventListener("click",fetchCocktails);
+
 }
   
-fetchCocktails()*/
 
-var randomBtn = document.getElementById('random-btn')
+
+
+/*var randomBtn = document.getElementById('random-btn')
 
 function fetchRandomCocktail() {
   var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -70,7 +76,7 @@ function fetchRandomCocktail() {
 
 }
 
-  /*function displayRandomCocktail(data) {
+    function displayRandomCocktail(data) {
     var cocktailDiv = document.getElementById('cocktails')
     var cocktailName = cocktail.strDrink;
     var heading = document.createElement('h1');
@@ -84,13 +90,8 @@ function fetchRandomCocktail() {
     var cocktailIngredients = document.createElement('ul');
     cocktailDiv.appendChild(cocktailIngredients);
 
-}*/
+}
 
 fetchRandomCocktail();
 
-//displayRandomCocktail();
-
-
-searchButton.addEventListener("click",fetchCocktails);
-
-
+displayRandomCocktail();*/
