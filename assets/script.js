@@ -1,4 +1,4 @@
-function fetchCocktails() {
+
 var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
 var searchButton = document.getElementById("search-button");
 var searchInputEl = document.getElementById("cocktail-search-id")
@@ -51,7 +51,7 @@ function fetchCocktails(event) {
   fetchCocktails()
   searchButton.addEventListener("click",fetchCocktails);
 
-}
+
   
 
 
