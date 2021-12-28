@@ -37,7 +37,9 @@ function fetchCocktails(event) {
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++
         }
-      })
+      }
+      
+      )
       .catch(function (err) {
         console.error(err);
       });
