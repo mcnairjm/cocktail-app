@@ -1,3 +1,5 @@
+
+var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
 var searchButton = document.getElementById("search-button");
 var searchInputEl = document.getElementById("cocktail-search-id")
 var cocktailContainerEl = document.getElementById("cocktail-container")
@@ -17,6 +19,7 @@ var cocktailTwelveEl = document.getElementById("cocktail-12-id");
 var cocktailThirteenEl = document.getElementById("cocktail-13-id");
 var cocktailFourteenEl = document.getElementById("cocktail-14-id");
 var cocktailRecipes = []
+var randomBtn = document.getElementById('random-btn')
 
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
@@ -64,7 +67,6 @@ function fetchCocktails(inputEl) {
           console.log(cocktailButtonEl.textContent);
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++
-         
         }
       }
       }
@@ -73,31 +75,62 @@ function fetchCocktails(inputEl) {
           console.error(err);
       });
       searchInputEl.value =""
-}
-
+  }
 function eventHandler(event) {
-  event.preventDefault();
-    // fiveDayIndex
-    var cocktailEl = searchInputEl.value.trim();
-    if(cocktailEl){
-        fetchCocktails(cocktailEl);
-        var cocktailInfo = {
-            name: cocktailEl
-        }
-         var cocktailRecipes=JSON.parse(localStorage.getItem("cocktailName")) || []
-        cocktailRecipes.push(cocktailInfo);
-        localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
-        searchInputEl.value = "";
-        // fillHistory()
-    } else {
-        alert("Please enter a Cocktail name.")
-    }
-}
-// initializing modals
-$(document).ready(function(){
-  $('.modal').modal();
-});
+    event.preventDefault();
+      // fiveDayIndex
+      var cocktailEl = searchInputEl.value.trim();
+      if(cocktailEl){
+          fetchCocktails(cocktailEl);
+          var cocktailInfo = {
+              name: cocktailEl
+          }
+           var cocktailRecipes=JSON.parse(localStorage.getItem("cocktailName")) || []
+          cocktailRecipes.push(cocktailInfo);
+          localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
+          searchInputEl.value = "";
+          
+      } else {
+          alert("Please enter a Cocktail name.")
+      }
+  }
+function fetchRandomCocktail() {
+    var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+  
+    fetch(apiUrl)
+    .then(function (res) {
+      if(!res.ok) {
+        throw Error('Error');
+      }
+      return res.json();
+    })
+    .then(function(data) {
+      console.log(data.drinks)
+      document.querySelector
+    })
+    .catch(function(err) {
+      console.error(err);
+    });
+  
+  }
+  searchButton.addEventListener("click",eventHandler);
+      function displayRandomCocktail(data) {
+      var cocktailDiv = document.getElementById('cocktails')
+      var cocktailName = cocktail.strDrink;
+      var heading = document.createElement('h1');
+      heading.innerHTML = cocktailName;
+      cocktailDiv.appendChild(heading);
+      var cocktailImg = document.createElement('img');
+      cocktailImg.src = cocktail.strDrinkThumb;
+      cocktailDiv.appendChild(cocktailImg);
+      document.body.style.backgroundImage = "url('" + cocktail.strDrinkThumb
+  
+      var cocktailIngredients = document.createElement('ul');
+      cocktailDiv.appendChild(cocktailIngredients);
+  }
+  //  initializing modals
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
 searchButton.addEventListener("click",eventHandler);
-
-
-
+displayRandomCocktail();
