@@ -76,7 +76,7 @@ function fetchCocktails(inputEl) {
       });
       searchInputEl.value =""
   }
-function eventHandler(event) {
+function fetchEventHandler(event) {
     event.preventDefault();
       // fiveDayIndex
       var cocktailEl = searchInputEl.value.trim();
@@ -94,43 +94,45 @@ function eventHandler(event) {
           alert("Please enter a Cocktail name.")
       }
   }
+ //  initializing modals
+ $(document).ready(function(){
+  $('.modal').modal();
+});  
+
+/*var randomBtn = document.getElementById('random-btn')
 function fetchRandomCocktail() {
-    var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-  
-    fetch(apiUrl)
-    .then(function (res) {
-      if(!res.ok) {
-        throw Error('Error');
-      }
-      return res.json();
-    })
-    .then(function(data) {
-      console.log(data.drinks)
-      document.querySelector
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
-  
-  }
-  searchButton.addEventListener("click",eventHandler);
-      function displayRandomCocktail(data) {
-      var cocktailDiv = document.getElementById('cocktails')
-      var cocktailName = cocktail.strDrink;
-      var heading = document.createElement('h1');
-      heading.innerHTML = cocktailName;
-      cocktailDiv.appendChild(heading);
-      var cocktailImg = document.createElement('img');
-      cocktailImg.src = cocktail.strDrinkThumb;
-      cocktailDiv.appendChild(cocktailImg);
-      document.body.style.backgroundImage = "url('" + cocktail.strDrinkThumb
-  
-      var cocktailIngredients = document.createElement('ul');
-      cocktailDiv.appendChild(cocktailIngredients);
-  }
-  //  initializing modals
-  $(document).ready(function(){
-    $('.modal').modal();
+  var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+  fetch(apiUrl)
+  .then(function (res) {
+    if(!res.ok) {
+      throw Error('Error');
+    }
+    return res.json();
+  })
+  .then(function(data) {
+    console.log(data.drinks)
+    document.querySelector
+  })
+  .catch(function(err) {
+    console.error(err);
   });
-searchButton.addEventListener("click",eventHandler);
-displayRandomCocktail();
+}
+    function displayRandomCocktail(data) {
+    var cocktailDiv = document.getElementById('cocktails')
+    var cocktailName = cocktail.strDrink;
+    var heading = document.createElement('h1');
+    heading.innerHTML = cocktailName;
+    cocktailDiv.appendChild(heading);
+    var cocktailImg = document.createElement('img');
+    cocktailImg.src = cocktail.strDrinkThumb;
+    cocktailDiv.appendChild(cocktailImg);
+    document.body.style.backgroundImage = "url('" + cocktail.strDrinkThumb
+    var cocktailIngredients = document.createElement('ul');
+    cocktailDiv.appendChild(cocktailIngredients);
+}
+searchButton.addEventListener("click",fetchCocktails);
+displayRandomCocktail();*/
+
+
+searchButton.addEventListener("click",fetchEventHandler);
+
