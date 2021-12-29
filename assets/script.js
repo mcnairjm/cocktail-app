@@ -237,21 +237,20 @@ function fetchRandomCocktail() {
     
     $('#instruction-modal').text(instructions)
 
-
-    $('body').click(function(event) {
-      if(!$(event.target).closest('#modal1').length && !$(event.target).is('#modal1')) {
-        $('#modal1').hide();
-      }
-    })
-
-
-    
   })
   .catch(function(err) {
     console.error(err);
   });
 
 }
+
+  document.addEventListener('click', function(event) {
+    if (
+      !event.target.closest('#modal1')
+    ) {
+      $('#modal1').hide();
+    }
+  })
 
 }
    /* function displayRandomCocktail(data) {
