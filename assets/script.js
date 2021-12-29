@@ -137,6 +137,12 @@ function fetchRandomCocktail() {
   })
   .catch(function(err) {
     console.error(err);
+
+  if (data.drinks === null) {
+    
+  }
+
+    
   });
 }
    /* function displayRandomCocktail(data) {
