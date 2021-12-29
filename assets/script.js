@@ -51,7 +51,7 @@ function fetchCocktails(inputEl) {
       })
       .then(function (data) {
         console.log(data);
-        cocktailIndex=0
+        var cocktailIndex=0
         if(data.drinks === null){
           alert("This drink does not exist")
         } else if(data.drinks.length === 1){
@@ -214,7 +214,7 @@ function fetchRandomCocktail() {
   cocktailFourteenEl.textContent = "";
   var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   var audio = document.getElementById('audio')
-
+  
   randomBtn.onclick = function() {
     audio.play();
   }
@@ -229,12 +229,21 @@ function fetchRandomCocktail() {
     return res.json();
   })
   .then(function(data) {
-    console.log(data.drinks)
-    document.querySelector
+    var cocktail = data.drinks[0].strDrink;
+    console.log(cocktail)
+
+    cocktailOneEl.textContent = cocktail;
+    cocktailOneEl.setAttribute('href', '#modal1')
+    cocktailOneEl.setAttribute('data-target', 'modal1')
+    cocktailOneEl.setAttribute("class", "btn orange modal-trigger cocktail-button");
+    cocktailContainerEl.appendChild(cocktailOneEl);
+    
   })
   .catch(function(err) {
     console.error(err);
   });
+
+
 }
    /* function displayRandomCocktail(data) {
     var cocktailDiv = document.getElementById('cocktails')
