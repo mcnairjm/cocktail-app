@@ -55,7 +55,12 @@ function fetchCocktails(inputEl) {
         if(data.drinks === null){
           alert("This drink does not exist")
         } else if(data.drinks.length === 1){
-          alert("There is only one cocktail")
+          // alert("There is only one cocktail")
+          // fillModal(data.drinks[0].strDrink)
+         
+
+
+          
         }  else {
         for (let i = 0; i < data.drinks.length; i++) {
           var cocktailOneEl = document.getElementById("cocktail-"+ cocktailIndex + "-id");
