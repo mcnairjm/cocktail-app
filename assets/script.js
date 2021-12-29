@@ -65,7 +65,7 @@ function fetchCocktails(inputEl) {
           cocktailButtonEl.setAttribute("href", "#modal1")
           cocktailButtonEl.setAttribute("data-target", "modal1")
           cocktailButtonEl.setAttribute("class", "btn orange modal-trigger cocktail-button");
-          console.log(cocktailButtonEl.textContent);
+          
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++ 
         }
@@ -77,11 +77,12 @@ function fetchCocktails(inputEl) {
       }
       )
       .catch(function (err) {
-          console.error(err);
+          // console.error(err);
       });
       searchInputEl.value =""
   }
 function fillModal(event){
+  
   console.log(event.target.textContent)
   var cocktailButton= event.target.textContent
   
@@ -103,11 +104,15 @@ function fillModal(event){
   console.log(cocktailButton);
   var modalTitleEl = document.getElementById("modal-title");
   var modalThumb = document.getElementById("modal-thumb");
-  modalThumb.setAttribute("src",pulledThumbEl)
+  modalThumb.setAttribute("src",pulledThumbEl + "/preview")
   modalThumb.setAttribute("alt","thumbnail of selected cocktail")
   var modalIngredients = document.getElementById("ingredient-modal");
   var modalInstuctions = document.getElementById("instruction-modal");
-  
+
+  // clear content
+  modalIngredients.innerHTML = ""
+
+
   var listedIngredientOne = document.createElement("li");
   var listedIngredientTwo = document.createElement("li");
   var listedIngredientThree = document.createElement("li");
@@ -125,6 +130,9 @@ function fillModal(event){
   var listedIngredientFifteen = document.createElement("li");
 
   
+
+
+
   listedIngredientOne.textContent ="1: "+ data.drinks[0].strMeasure1 +" " + data.drinks[0].strIngredient1;
   listedIngredientTwo.textContent ="2: "+ data.drinks[0].strMeasure2 +" " + data.drinks[0].strIngredient2;
   listedIngredientThree.textContent ="3: "+ data.drinks[0].strMeasure3 +" " + data.drinks[0].strIngredient3;
