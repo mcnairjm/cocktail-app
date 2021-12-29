@@ -183,9 +183,31 @@ function fetchEventHandler(event) {
   }
  
 
-/*var randomBtn = document.getElementById('random-btn')
 function fetchRandomCocktail() {
+  cocktailZeroEl.textContent = "";
+  cocktailOneEl.textContent = "";
+  cocktailTwoEl.textContent = "";
+  cocktailThreeEl.textContent = "";
+  cocktailFourEl.textContent = "";
+  cocktailFiveEl.textContent = "";
+  cocktailSixEl.textContent = "";
+  cocktailSevenEl.textContent = "";
+  cocktailEightEl.textContent = "";
+  cocktailNineEl.textContent = "";
+  cocktailTenEl.textContent = "";
+  cocktailElevenEl.textContent = "";
+  cocktailTwelveEl.textContent = "";
+  cocktailThirteenEl.textContent = "";
+  cocktailFourteenEl.textContent = "";
   var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+  var audio = document.getElementById('audio')
+
+  randomBtn.onclick = function() {
+    audio.play();
+  }
+
+
+
   fetch(apiUrl)
   .then(function (res) {
     if(!res.ok) {
@@ -201,7 +223,7 @@ function fetchRandomCocktail() {
     console.error(err);
   });
 }
-    function displayRandomCocktail(data) {
+   /* function displayRandomCocktail(data) {
     var cocktailDiv = document.getElementById('cocktails')
     var cocktailName = cocktail.strDrink;
     var heading = document.createElement('h1');
@@ -218,6 +240,7 @@ searchButton.addEventListener("click",fetchCocktails);
 displayRandomCocktail();*/
 
 cocktailContainerEl.addEventListener("click", fillModal);
+randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
 
   

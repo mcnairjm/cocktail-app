@@ -10,14 +10,20 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav>
+            <div class="nav-wrapper blue-grey darken-1">
+                <a class="brand-logo ">Barback App</a>
+            </div>
+        </nav>
+    </header>
     <!-- hero -->
     <!-- section that contains cocktail search bar,button, and divs containing searched recipes -->
     <section id="cocktail-search-container"> 
         <div class="input-field col s4">    
             <input id="cocktail-search-id" placeholder="cocktail name" type="text">
-            <button class="btn btn-large waves-effect blue-grey darken-1" id="search-button" type ="submit"><i class="material-icons left">local_drink</i>submit</button>
-            <button class="btn btn-large waves-effect blue-grey darken-1" id="random-btn" type ="submit"><i class="material-icons left">local_drink</i>Random</button>
+            <button class="btn btn-large waves-effect blue-grey darken-1 center" id="search-button" type ="submit"><i class="material-icons left">local_drink</i>submit</button>
+            <button class="btn btn-large waves-effect blue-grey darken-1 center" id="random-btn" type ="submit"><i class="material-icons left">whatshot</i>Random</button>
             <br>
             <section id="cocktail-container">
                 <div class="row">
@@ -61,7 +67,7 @@
       <p id="instruction-modal">Instructions</p>
     </div>
   </div>
-    
+    <audio id='audio' src='./assets/audio/ice-cubes-glass-daniel_simon.m4a' autoplay='false'></audio>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
