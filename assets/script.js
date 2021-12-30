@@ -23,6 +23,7 @@ var modalContentEl = document.getElementById("modal-content");
 var randomBtn = document.getElementById('random-btn')
 var ingredientModal = document.getElementById('ingredient-modal')
 
+
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
   cocktailZeroEl.textContent = "";
@@ -230,13 +231,13 @@ function fetchRandomCocktail() {
     $('#modal-title').text(cocktail)
     modalThumb.setAttribute("src",picture + "/preview")
     $('#instruction-modal').text(instructions)
-
     for (let i = 1; i < 16; i++) {
       if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
 
         var listSection = document.createElement("li");
         listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
         ingredientModal.appendChild(listSection);
+        
       }
     }
 
