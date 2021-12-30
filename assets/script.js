@@ -311,6 +311,7 @@ function fetchRandomCocktail() {
 
     randomBtn.onclick = function() {
     audio.play();
+    ingredientModal.textContent = '';
     
   fetch(apiUrl)
   .then(function (res) {
@@ -330,8 +331,16 @@ function fetchRandomCocktail() {
     $('#modal1').show();
     $('#modal-title').text(cocktail)
     modalThumb.setAttribute("src",picture + "/preview")
-    
     $('#instruction-modal').text(instructions)
+
+    for (let i = 1; i < 16; i++) {
+      if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
+
+        var listSection = document.createElement("li");
+        listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
+        ingredientModal.appendChild(listSection);
+      }
+    }
 
   })
   .catch(function(err) {
@@ -346,8 +355,10 @@ function fetchRandomCocktail() {
     ) {
       $('#modal1').hide();
     }
+    
   })
-
+  
+  
 }
    /* function displayRandomCocktail(data) {
     var cocktailDiv = document.getElementById('cocktails')
@@ -367,6 +378,6 @@ displayRandomCocktail();*/
 
 cocktailContainerEl.addEventListener("click", fillModal);
 randomBtn.addEventListener('click',fetchRandomCocktail);
-searchButton.addEventListener("click",fetchEventHandler);
+searchButton.addEventListener("click",fetchCocktails);
 
   
