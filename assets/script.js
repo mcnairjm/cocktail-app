@@ -213,7 +213,7 @@ function fetchRandomCocktail() {
   var modalThumb = document.getElementById('modal-thumb')
  
 
-  randomBtn.onclick = function() {
+    randomBtn.onclick = function() {
     audio.play();
     
   fetch(apiUrl)
@@ -229,7 +229,7 @@ function fetchRandomCocktail() {
     var picture = data.drinks[0].strDrinkThumb
     
     
-    console.log(data.drinks[0])
+    console.log(data.drinks[0].strDrink)
 
     $('#modal1').show();
     $('#modal-title').text(cocktail)
