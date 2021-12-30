@@ -21,6 +21,7 @@ var cocktailFourteenEl = document.getElementById("cocktail-14-id");
 var cocktailRecipes = []
 var modalContentEl = document.getElementById("modal-content");
 var randomBtn = document.getElementById('random-btn')
+var ingredientModal = document.getElementById('ingredient-modal')
 
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
@@ -311,13 +312,12 @@ function fetchRandomCocktail() {
   cocktailFourteenEl.textContent = "";
   var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   var audio = document.getElementById('audio')
-  
+  var modalThumb = document.getElementById('modal-thumb')
+ 
+
   randomBtn.onclick = function() {
     audio.play();
-  }
-
-
-
+    
   fetch(apiUrl)
   .then(function (res) {
     if(!res.ok) {
@@ -327,19 +327,32 @@ function fetchRandomCocktail() {
   })
   .then(function(data) {
     var cocktail = data.drinks[0].strDrink;
-    console.log(cocktail)
-
-    cocktailOneEl.textContent = cocktail;
-    cocktailOneEl.setAttribute('href', '#modal1')
-    cocktailOneEl.setAttribute('data-target', 'modal1')
-    cocktailOneEl.setAttribute("class", "btn orange modal-trigger cocktail-button");
-    cocktailContainerEl.appendChild(cocktailOneEl);
+    var instructions = data.drinks[0].strInstructions;
+    var picture = data.drinks[0].strDrinkThumb
     
+    
+    console.log(data.drinks[0])
+
+    $('#modal1').show();
+    $('#modal-title').text(cocktail)
+    modalThumb.setAttribute("src",picture + "/preview")
+    
+    $('#instruction-modal').text(instructions)
+
   })
   .catch(function(err) {
     console.error(err);
   });
 
+}
+
+  document.addEventListener('click', function(event) {
+    if (
+      !event.target.closest('#modal1')
+    ) {
+      $('#modal1').hide();
+    }
+  })
 
 }
    /* function displayRandomCocktail(data) {
