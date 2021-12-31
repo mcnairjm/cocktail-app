@@ -322,3 +322,8 @@ document.addEventListener("click", function (event) {
 
 cocktailContainerEl.addEventListener("click", fillModal);
 searchButton.addEventListener("click", fetchCocktails);
+randomBtn.addEventListener('click',fetchRandomCocktail);
+//searchButton.addEventListener("click",fetchEventHandler);
+modalContainer.addEventListener("click", saveCocktail);
+clearHistoryEl.addEventListener("click", clearHistory);
+historyEl.addEventListener("click", fillModal)
