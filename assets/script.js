@@ -325,6 +325,9 @@ randomBtn.onclick = function fetchRandomCocktail() {
 
 cocktailContainerEl.addEventListener("click", fillModal);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> develop-luke
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
 modalContainer.addEventListener("click", saveCocktail);
@@ -333,8 +336,11 @@ historyEl.addEventListener("click", fillModal)
 
 
 
+<<<<<<< HEAD
 =======
 searchButton.addEventListener("click",fetchCocktails);
 >>>>>>> 80f2483ddc53dcef626d08256fdc957ac2c1849f
+=======
+>>>>>>> develop-luke
 
   
