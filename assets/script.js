@@ -26,6 +26,8 @@ var saveHistory = document.getElementById("saved-cocktail")
 var historyEl = document.getElementById("history-list-container")
 var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
+var buttonFooterEl = document.getElementById("button-footer");
+var buttonFooterParentEl = document.getElementById("modal-footer-id")
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -136,13 +138,13 @@ function fetchCocktails(inputEl) {
       }
     })
     .catch(function (err) {
-      // console.error(err);
+      console.error(err);
     });
   searchInputEl.value = "";
 }
 
 function fillModal(event){
-  console.log(cocktailButton)
+  
   var cocktailButton= event.target.textContent
   
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + cocktailButton ;
@@ -270,6 +272,7 @@ cocktailContainerEl.addEventListener("click", fillModal);
 // searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
-modalContainer.addEventListener("click", saveCocktail);
+buttonFooterParentEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
+
