@@ -32,7 +32,6 @@ $(document).ready(function(){
 });
 
 
-
 function clearHistory(event){
   event.preventDefault();
   console.log("hello");
@@ -160,11 +159,6 @@ function fetchCocktails(inputEl) {
 
               modalTitleEl.textContent = cocktailButton;
               modalInstuctions.textContent = pulledInstruction;
-
-              //  initializing modals
-              $(document).ready(function () {
-                $("#modal1").modal().show();
-              });
             });
         }
         fillModalOne(data);
@@ -186,10 +180,6 @@ function fetchCocktails(inputEl) {
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++;
         }
-        //  initializing modals
-        $(document).ready(function () {
-          $("#modal1").modal();
-        });
       }
     })
     .catch(function (err) {
@@ -246,14 +236,6 @@ function fetchEventHandler(event) {
       var cocktailEl = searchInputEl.value.trim();
       if(cocktailEl){
           fetchCocktails(cocktailEl);
-          // var savedCocktailEl =JSON.parse(localStorage.getItem("cocktailName")) || []
-          // var cocktailInfo = {
-          //     name: cocktailEl
-          // }
-          //  var cocktailRecipes=JSON.parse(localStorage.getItem("cocktailName")) || []
-          // cocktailRecipes.push(cocktailInfo);
-          // localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
-          // searchInputEl.value = "";
           
       } else {
           alert("Please enter a Cocktail name.")
@@ -297,10 +279,7 @@ function fetchRandomCocktail() {
       var instructions = data.drinks[0].strInstructions;
       var picture = data.drinks[0].strDrinkThumb;
       console.log(data.drinks[0].strDrink);
-      $(document).ready(function () {
-        $("#modal1").modal().show();
       
-      //$("#modal1").show();
       $("#modal-title").text(cocktail);
       modalThumb.setAttribute("src", picture + "/preview");
       modalThumb.setAttribute("alt", "thumbnail of selected cocktail");
@@ -317,7 +296,7 @@ function fetchRandomCocktail() {
           ingredientModal.appendChild(listSection);
         }
       }
-    });
+      $('#modal1').show();
     })
     .catch(function (err) {
       console.error(err);
