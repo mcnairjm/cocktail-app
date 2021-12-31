@@ -27,6 +27,11 @@ var historyEl = document.getElementById("history-list-container")
 var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
 
+$(document).ready(function(){
+  $('.modal').modal();
+});
+
+
 
 function clearHistory(event){
   event.preventDefault();
@@ -99,6 +104,8 @@ function fetchCocktails(inputEl) {
   var inputEl = searchInputEl.value.toLowerCase().trim();
   var apiUrl =
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + inputEl;
+
+    
 
   fetch(apiUrl)
     .then(function (res) {
