@@ -22,6 +22,62 @@ var cocktailRecipes = []
 var modalContentEl = document.getElementById("modal-content");
 var randomBtn = document.getElementById('random-btn')
 var ingredientModal = document.getElementById('ingredient-modal')
+var modalContainer = document.getElementById("modal1")
+var saveHistory = document.getElementById("saved-cocktail")
+var historyEl = document.getElementById("history-list-container")
+var clearHistoryEl = document.getElementById("clear-button")
+var historyListEl = document.getElementById("history-list");
+
+
+function clearHistory(event){
+  event.preventDefault();
+  console.log("hello");
+  window.localStorage.removeItem("cocktailName");
+  location.reload();
+}
+
+
+function fillFavorites() {
+  var historyEl = document.getElementById("history-list-container")
+  var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
+  console.log (cocktailRecipes)
+  historyIndex = 0
+  historyEl.innerHTML = ""
+  for (let i = 0; i < cocktailRecipes.length; i++) {
+    var storedName = cocktailRecipes[historyIndex].name;
+    console.log(storedName)
+            
+    var listedCocktail = document.createElement("li");
+    var historyButton = document.createElement("button");
+    historyButton.setAttribute("class","btn blue modal-trigger cocktail-button" )
+    historyButton.setAttribute("href", "#modal1")
+    historyButton.textContent = storedName;
+    listedCocktail.appendChild(historyButton);
+    historyEl.appendChild(listedCocktail)
+    
+    console.log(historyEl)
+    historyIndex++  
+  }
+ 
+}
+window.onload = function(){
+  fillFavorites();
+}
+function saveCocktail(event){
+  
+  var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
+  var modalTitleEl = document.getElementById("modal-title");
+  var savedCocktailName = modalTitleEl.textContent;
+  var savedCocktailEl = {
+                name: savedCocktailName
+            }
+  console.log(savedCocktailEl)
+  
+  cocktailRecipes.push(savedCocktailEl);
+  console.log(cocktailRecipes)
+  localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
+  fillFavorites()
+}
 
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
@@ -85,10 +141,11 @@ function fetchCocktails(inputEl) {
                 if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
 
                   var listSection = document.createElement("li");
-                  listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
+                  listSection.textContent = `${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
                   modalIngredients.appendChild(listSection);
                 }
               }
+              console.log(listSection)
 
               modalTitleEl.textContent = cocktailButton;
               modalInstuctions.textContent = pulledInstruction
@@ -132,6 +189,7 @@ function fetchCocktails(inputEl) {
 function fillModal(event){
   
   var cocktailButton= event.target.textContent
+  // console.log(cocktailButton)
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + cocktailButton ;
   
   fetch(apiUrl)
@@ -157,14 +215,16 @@ function fillModal(event){
       for (let i = 1; i < 16; i++) {
         if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
           var listSection = document.createElement("li");
-          listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
+          listSection.textContent = `${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
           modalIngredients.appendChild(listSection);
         }
       }
       modalTitleEl.textContent = cocktailButton;
       modalInstuctions.textContent = pulledInstruction
+      
     }
     ) 
+    
 }
 
 function fetchEventHandler(event) {
@@ -173,13 +233,14 @@ function fetchEventHandler(event) {
       var cocktailEl = searchInputEl.value.trim();
       if(cocktailEl){
           fetchCocktails(cocktailEl);
-          var cocktailInfo = {
-              name: cocktailEl
-          }
-           var cocktailRecipes=JSON.parse(localStorage.getItem("cocktailName")) || []
-          cocktailRecipes.push(cocktailInfo);
-          localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
-          searchInputEl.value = "";
+          // var savedCocktailEl =JSON.parse(localStorage.getItem("cocktailName")) || []
+          // var cocktailInfo = {
+          //     name: cocktailEl
+          // }
+          //  var cocktailRecipes=JSON.parse(localStorage.getItem("cocktailName")) || []
+          // cocktailRecipes.push(cocktailInfo);
+          // localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
+          // searchInputEl.value = "";
           
       } else {
           alert("Please enter a Cocktail name.")
@@ -266,5 +327,11 @@ displayRandomCocktail();*/
 cocktailContainerEl.addEventListener("click", fillModal);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
+modalContainer.addEventListener("click", saveCocktail);
+clearHistoryEl.addEventListener("click", clearHistory);
+historyEl.addEventListener("click", fillModal)
+
+
+
 
   

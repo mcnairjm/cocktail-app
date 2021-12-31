@@ -25,25 +25,31 @@
             <button class="btn btn-large waves-effect blue-grey darken-1 center" id="search-button" type ="submit"><i class="material-icons left">local_drink</i>submit</button>
             <button class="btn btn-large waves-effect blue-grey darken-1 center" id="random-btn" type ="submit"><i class="material-icons left">whatshot</i>Random</button>
             <br>
-            <section id="cocktail-container">
-                <div class="row">
-                    <div data-dive ="1" class="col s1" id="cocktail-0-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-1-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-2-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-3-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-4-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-5-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-6-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-7-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-8-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-9-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-10-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-11-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-12-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-13-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-14-id"></div>
-                </div>
-            </section>
+         
+            <section class="row">
+                <section class="col s4" id="cocktail-container">
+                    <div class="row searched-cocktails">
+                        <div data-dive ="1" class="col s1" id="cocktail-0-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-1-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-2-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-3-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-4-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-5-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-6-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-7-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-8-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-9-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-10-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-11-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-12-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-13-id"></div>
+                        <div data-dive ="1" class="col s1" id="cocktail-14-id"></div>
+                    </div>
+                    <div id="button-parent" class="col s4">
+                        <button id="clear-button" class="btn btn-large waves-effect blue-grey darken-1 ">Clear Favorite Cocktails</button>
+                        <ul class="history-list" id="history-list-container"></ul>
+                    </div>        
+                </section>
         </div>    
     </section>
 
@@ -51,18 +57,26 @@
     <br>
     
     <!-- this section contains the history/favorite cocktails -->
-    <!-- <section>
-        <button>Clear Favorite Cocktails</button>
-        <ul></ul>
-    </section>         -->
+    <section>
+        
+    </section>        
 
     <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4 id="modal-title">Cocktail Name</h4>
-      <img id="modal-thumb" src="" alt="">
-      <ul id="ingredient-modal">Ingredient List</ul>
-      <p id="instruction-modal">Instructions</p>
+        <div class="row">
+            <h4 class="col s6 center" id="modal-title">Cocktail Name</h4>
+            <button class=" col s6 btn btn-large waves-effect blue-grey darken-1" id="save-cocktail">Save Cocktail</button>
+        </div>
+        <div class="row">
+            <img class="col s6" id="modal-thumb" src="" alt="">
+            <div class="col s6">
+                <ul id="ingredient-modal">Ingredient List</ul>
+                <p id="instruction-modal">Instructions</p>
+            </div>
+        </div>
+        
+      
     </div>
   </div>
     <audio id='audio' src='./assets/audio/ice-cubes-glass-daniel_simon.m4a' autoplay='false'></audio>
