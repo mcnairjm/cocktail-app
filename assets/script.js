@@ -230,7 +230,11 @@ function fillModal(event){
       }
       modalTitleEl.textContent = cocktailButton;
       modalInstuctions.textContent = pulledInstruction
+<<<<<<< HEAD
       $("#modal1").show();
+=======
+      $('#modal1').show();
+>>>>>>> b9e05d1b28a02df2045d93fe15e59aa679f7afa6
     }
     ) 
 }
@@ -256,6 +260,7 @@ function fetchEventHandler(event) {
   }
  
 function fetchRandomCocktail() {
+
   cocktailZeroEl.textContent = "";
   cocktailOneEl.textContent = "";
   cocktailTwoEl.textContent = "";
@@ -291,8 +296,10 @@ function fetchRandomCocktail() {
       var instructions = data.drinks[0].strInstructions;
       var picture = data.drinks[0].strDrinkThumb;
       console.log(data.drinks[0].strDrink);
-
-      $("#modal1").show();
+      $(document).ready(function () {
+        $("#modal1").modal().show();
+      
+      //$("#modal1").show();
       $("#modal-title").text(cocktail);
       modalThumb.setAttribute("src", picture + "/preview");
       modalThumb.setAttribute("alt", "thumbnail of selected cocktail");
@@ -309,6 +316,7 @@ function fetchRandomCocktail() {
           ingredientModal.appendChild(listSection);
         }
       }
+    });
     })
     .catch(function (err) {
       console.error(err);
