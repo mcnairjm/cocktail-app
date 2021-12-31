@@ -21,11 +21,12 @@ var cocktailRecipes = [];
 var modalContentEl = document.getElementById("modal-content");
 var randomBtn = document.getElementById('random-btn')
 var ingredientModal = document.getElementById('ingredient-modal')
-var modalContainer = document.getElementById("modal1")
-var saveHistory = document.getElementById("saved-cocktail")
+//var modalContainer = document.getElementById("modal1")
+//var saveHistory = document.getElementById("saved-cocktail")
 var historyEl = document.getElementById("history-list-container")
 var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
+var favoriteToggle = document.getElementById('toggle')
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -33,7 +34,7 @@ $(document).ready(function(){
 
 
 function clearHistory(event){
-  event.preventDefault();
+  //event.preventDefault();
   console.log("hello");
   window.localStorage.removeItem("cocktailName");
   location.reload();
@@ -42,11 +43,13 @@ function clearHistory(event){
 
 function fillFavorites() {
   var historyEl = document.getElementById("history-list-container")
-  var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
+  var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) 
   console.log (cocktailRecipes)
   historyIndex = 0
   historyEl.innerHTML = ""
+  
   for (let i = 0; i < cocktailRecipes.length; i++) {
+    
     var storedName = cocktailRecipes[historyIndex].name;
     console.log(storedName)
             
@@ -60,14 +63,15 @@ function fillFavorites() {
     
     console.log(historyEl)
     historyIndex++  
-  }
+    }
+  
+
  
 }
 window.onload = function(){
   fillFavorites();
 }
 function saveCocktail(event){
-  
   var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
   var modalTitleEl = document.getElementById("modal-title");
   var savedCocktailName = modalTitleEl.textContent;
@@ -80,6 +84,7 @@ function saveCocktail(event){
   console.log(cocktailRecipes)
   localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
   fillFavorites()
+
 }
 
 function fetchCocktails(inputEl) {
@@ -270,6 +275,62 @@ cocktailContainerEl.addEventListener("click", fillModal);
 // searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
-modalContainer.addEventListener("click", saveCocktail);
+favoriteToggle.addEventListener("change", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
+
+
+
+/*function fillFavorites() {
+  var historyEl = document.getElementById("history-list-container")
+  var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
+  console.log (cocktailRecipes)
+  historyIndex = 0
+  historyEl.innerHTML = ""
+  for (let i = 0; i < cocktailRecipes.length; i++) {
+    var storedName = cocktailRecipes[historyIndex].name;
+    console.log(storedName)
+            
+    var listedCocktail = document.createElement("li");
+    var historyButton = document.createElement("button");
+    historyButton.setAttribute("class","btn blue modal-trigger cocktail-button" )
+    historyButton.setAttribute("href", "#modal1")
+    historyButton.textContent = storedName;
+    listedCocktail.appendChild(historyButton);
+    historyEl.appendChild(listedCocktail)
+    
+    console.log(historyEl)
+    historyIndex++  
+  }
+ 
+}*/
+
+var switchStatus = false;
+
+/*$('#favorite-switch').on('change', function() {
+  var historyEl = document.getElementById('history-list-container')
+  var cocktailRecipes = JSON.parse(localStorage.getItem('cocktailName')) || []
+  //console.log(cocktailRecipes)
+  historyIndex = 0
+  historyEl.innerHTML = ''
+
+  if($(this).is(':checked')) {
+    for (let i = 0; i < cocktailRecipes.length; i ++) {
+      var storedName = cocktailRecipes[historyIndex].name
+      console.log(storedName)
+
+      var listedCocktail = document.createElement('li');
+      var historyButton = document.createElement('button');
+      historyButton.setAttribute('class', 'btn blue modal-trigger cocktail-button')
+      historyButton.setAttribute('href', '#modal1')
+      historyButton.text = storedName;
+      listedCocktail.appendChild(historyButton);
+      historyEl.appendChild(listedCocktail)
+
+      console.log(historyEl)
+      historyIndex++
+    }
+  }
+})*/
+
+//favoriteToggle.addEventListener('toggle', saveCocktail);
