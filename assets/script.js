@@ -176,7 +176,7 @@ function fetchCocktails(inputEl) {
           var cocktailButtonEl = document.createElement("a");
 
           cocktailButtonEl.textContent = data.drinks[i].strDrink;
-          cocktailButtonEl.setAttribute("href", "#modal1");
+          
           cocktailButtonEl.setAttribute("data-target", "modal1");
           cocktailButtonEl.setAttribute(
             "class",
@@ -187,9 +187,9 @@ function fetchCocktails(inputEl) {
           cocktailIndex++;
         }
         //  initializing modals
-        $(document).ready(function () {
+        /*$(document).ready(function () {
           $("#modal1").modal();
-        });
+        });*/
       }
     })
     .catch(function (err) {
@@ -221,6 +221,7 @@ function fillModal(event){
 
       // clear content
       modalIngredients.innerHTML = "";
+      $('#modal1').show();
 
       // this for loop guards against ingrediensts that are undefined from being listed
       for (let i = 1; i < 16; i++) {
@@ -235,7 +236,7 @@ function fillModal(event){
       }
       modalTitleEl.textContent = cocktailButton;
       modalInstuctions.textContent = pulledInstruction
-      $('#modal1').show();
+      
     }
     ) 
 }
@@ -283,7 +284,9 @@ function fetchRandomCocktail() {
 
   //audio.play();
   ingredientModal.textContent = "";
-
+  
+  randomBtn.setAttribute("data-target", "modal1");
+  
   fetch(apiUrl)
     .then(function (res) {
       if (!res.ok) {
@@ -297,10 +300,10 @@ function fetchRandomCocktail() {
       var instructions = data.drinks[0].strInstructions;
       var picture = data.drinks[0].strDrinkThumb;
       console.log(data.drinks[0].strDrink);
-      $(document).ready(function () {
-        $("#modal1").modal().show();
       
-      //$("#modal1").show();
+        
+      
+      $("#modal1").show();
       $("#modal-title").text(cocktail);
       modalThumb.setAttribute("src", picture + "/preview");
       modalThumb.setAttribute("alt", "thumbnail of selected cocktail");
@@ -317,7 +320,7 @@ function fetchRandomCocktail() {
           ingredientModal.appendChild(listSection);
         }
       }
-    });
+    
     })
     .catch(function (err) {
       console.error(err);
