@@ -167,6 +167,7 @@ function fetchCocktails(inputEl) {
             "cocktail-" + cocktailIndex + "-id"
           );
           var cocktailButtonEl = document.createElement("a");
+          console.log(data)
 
           cocktailButtonEl.textContent = data.drinks[i].strDrink;
           cocktailButtonEl.setAttribute("href", "#modal1");
@@ -179,9 +180,10 @@ function fetchCocktails(inputEl) {
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++;
         }
+        
         //  initializing modals
-        $(document).ready(function () {
-          $("#modal1").modal();
+          $(document).ready(function () {
+          $("#modal1").modal().show();
         });
       }
     })
@@ -228,7 +230,7 @@ function fillModal(event){
       }
       modalTitleEl.textContent = cocktailButton;
       modalInstuctions.textContent = pulledInstruction
-      
+      $("#modal1").show();
     }
     ) 
 }
