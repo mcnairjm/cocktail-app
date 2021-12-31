@@ -113,7 +113,8 @@ function fetchCocktails(inputEl) {
     .then(function (data) {
       var cocktailIndex = 0;
       if (data.drinks === null) {
-        alert("This drink does not exist");
+       return
+
       } else if (data.drinks.length === 1) {
         // if there is only one search result after clicking submit, it will autmocatically pull up the recipe in modal.
         function fillModalOne(data) {
@@ -159,7 +160,9 @@ function fetchCocktails(inputEl) {
 
               modalTitleEl.textContent = cocktailButton;
               modalInstuctions.textContent = pulledInstruction;
+              $
             });
+            $('#modal1').show();
         }
         fillModalOne(data);
       } else {
@@ -238,7 +241,7 @@ function fetchEventHandler(event) {
           fetchCocktails(cocktailEl);
           
       } else {
-          alert("Please enter a Cocktail name.")
+         return
       }
   }
  
@@ -311,9 +314,9 @@ document.addEventListener("click", function (event) {
 });
 
 cocktailContainerEl.addEventListener("click", fillModal);
-searchButton.addEventListener("click", fetchCocktails);
+// searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
-//searchButton.addEventListener("click",fetchEventHandler);
+searchButton.addEventListener("click",fetchEventHandler);
 modalContainer.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
