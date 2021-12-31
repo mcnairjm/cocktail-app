@@ -21,6 +21,8 @@ var cocktailFourteenEl = document.getElementById("cocktail-14-id");
 var cocktailRecipes = []
 var modalContentEl = document.getElementById("modal-content");
 var randomBtn = document.getElementById('random-btn')
+var ingredientModal = document.getElementById('ingredient-modal')
+
 
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
@@ -42,7 +44,6 @@ function fetchCocktails(inputEl) {
 
 
   var inputEl = searchInputEl.value.toLowerCase().trim();
-  // preventDefault();
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + inputEl ;
   
     fetch(apiUrl)
@@ -50,12 +51,59 @@ function fetchCocktails(inputEl) {
         return res.json();
       })
       .then(function (data) {
-        console.log(data);
         var cocktailIndex=0
         if(data.drinks === null){
           alert("This drink does not exist")
         } else if(data.drinks.length === 1){
-          alert("There is only one cocktail")
+          // if there is only one search result after clicking submit, it will autmocatically pull up the recipe in modal.
+          function fillModalOne(data){
+            var cocktailButton= data.drinks[0].strDrink
+            console.log(cocktailButton);
+
+            var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + cocktailButton ;
+      
+            fetch(apiUrl)
+              .then(function (res) {
+              return res.json();
+              })
+              .then(function (data) {
+              
+              var cocktailButton = data.drinks[0].strDrink
+              var pulledInstruction = data.drinks[0].strInstructions
+              var pulledThumbEl = data.drinks[0].strDrinkThumb;
+              var modalTitleEl = document.getElementById("modal-title");
+              var modalThumb = document.getElementById("modal-thumb");
+              modalThumb.setAttribute("src",pulledThumbEl + "/preview")
+              modalThumb.setAttribute("alt","thumbnail of selected cocktail")
+              var modalIngredients = document.getElementById("ingredient-modal");
+              var modalInstuctions = document.getElementById("instruction-modal");
+              
+              // clear content
+              modalIngredients.innerHTML = ""
+
+              // this for loop guards against ingrediensts that are undefined from being listed
+              for (let i = 1; i < 16; i++) {
+                if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
+
+                  var listSection = document.createElement("li");
+                  listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
+                  modalIngredients.appendChild(listSection);
+                }
+              }
+
+              modalTitleEl.textContent = cocktailButton;
+              modalInstuctions.textContent = pulledInstruction
+              
+              //  initializing modals
+              $(document).ready(function(){
+                $('#modal1').modal().show();
+              }); 
+
+            }
+          ) 
+        }
+        fillModalOne(data);   
+
         }  else {
         for (let i = 0; i < data.drinks.length; i++) {
           var cocktailOneEl = document.getElementById("cocktail-"+ cocktailIndex + "-id");
@@ -69,23 +117,22 @@ function fetchCocktails(inputEl) {
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++ 
         }
-  //  initializing modals
- $(document).ready(function(){
-  $('.modal').modal();
-});  
+         //  initializing modals
+        $(document).ready(function(){
+        $('#modal1').modal();
+        });  
       }
       }
       )
-      .catch(function (err) {
-          // console.error(err);
-      });
-      searchInputEl.value =""
-  }
+        .catch(function (err) {
+        // console.error(err);
+        });
+        searchInputEl.value =""
+}
+
 function fillModal(event){
   
-  console.log(event.target.textContent)
   var cocktailButton= event.target.textContent
-  
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + cocktailButton ;
   
   fetch(apiUrl)
@@ -93,87 +140,39 @@ function fillModal(event){
       return res.json();
     })
     .then(function (data) {
-      console.log(data)
-  
-  var cocktailButton = event.target.textContent
-  var pulledInstruction = data.drinks[0].strInstructions
-  var pulledThumbEl = data.drinks[0].strDrinkThumb;
-  console.log(pulledThumbEl);
-  console.log(pulledInstruction)
-  
-  console.log(cocktailButton);
-  var modalTitleEl = document.getElementById("modal-title");
-  var modalThumb = document.getElementById("modal-thumb");
-  modalThumb.setAttribute("src",pulledThumbEl + "/preview")
-  modalThumb.setAttribute("alt","thumbnail of selected cocktail")
-  var modalIngredients = document.getElementById("ingredient-modal");
-  var modalInstuctions = document.getElementById("instruction-modal");
+      
+      var cocktailButton = event.target.textContent
+      var pulledInstruction = data.drinks[0].strInstructions
+      var pulledThumbEl = data.drinks[0].strDrinkThumb;
+      var modalTitleEl = document.getElementById("modal-title");
+      var modalThumb = document.getElementById("modal-thumb");
+      modalThumb.setAttribute("src",pulledThumbEl + "/preview")
+      modalThumb.setAttribute("alt","thumbnail of selected cocktail")
+      var modalIngredients = document.getElementById("ingredient-modal");
+      var modalInstuctions = document.getElementById("instruction-modal");
 
-  // clear content
-  modalIngredients.innerHTML = ""
+      // clear content
+      modalIngredients.innerHTML = ""
 
-
-  var listedIngredientOne = document.createElement("li");
-  var listedIngredientTwo = document.createElement("li");
-  var listedIngredientThree = document.createElement("li");
-  var listedIngredientFour = document.createElement("li");
-  var listedIngredientFive = document.createElement("li");
-  var listedIngredientSix = document.createElement("li");
-  var listedIngredientSeven = document.createElement("li");
-  var listedIngredientEight = document.createElement("li");
-  var listedIngredientNine = document.createElement("li");
-  var listedIngredientTen = document.createElement("li");
-  var listedIngredientEleven = document.createElement("li");
-  var listedIngredientTwelve = document.createElement("li");
-  var listedIngredientThirteen = document.createElement("li");
-  var listedIngredientFourteen = document.createElement("li");
-  var listedIngredientFifteen = document.createElement("li");
-
-  
-
-
-
-  listedIngredientOne.textContent ="1: "+ data.drinks[0].strMeasure1 +" " + data.drinks[0].strIngredient1;
-  listedIngredientTwo.textContent ="2: "+ data.drinks[0].strMeasure2 +" " + data.drinks[0].strIngredient2;
-  listedIngredientThree.textContent ="3: "+ data.drinks[0].strMeasure3 +" " + data.drinks[0].strIngredient3;
-  listedIngredientFour.textContent ="4: "+ data.drinks[0].strMeasure4 +" " + data.drinks[0].strIngredient4;
-  listedIngredientFive.textContent ="5: "+ data.drinks[0].strMeasure5 +" " + data.drinks[0].strIngredient5;
-  listedIngredientSix.textContent ="6: "+ data.drinks[0].strMeasure6 +" " + data.drinks[0].strIngredient6;
-  listedIngredientSeven.textContent ="7: "+ data.drinks[0].strMeasure7 +" " + data.drinks[0].strIngredient7;
-  listedIngredientEight.textContent ="8: "+ data.drinks[0].strMeasure8 +" " + data.drinks[0].strIngredient8;
-  listedIngredientNine.textContent ="9: "+ data.drinks[0].strMeasure9 +" " + data.drinks[0].strIngredient9;
-  listedIngredientTen.textContent ="10: "+ data.drinks[0].strMeasure10 +" " + data.drinks[0].strIngredient10;
-  listedIngredientEleven.textContent ="11: "+ data.drinks[0].strMeasure11 +" " + data.drinks[0].strIngredient11;
-  listedIngredientTwelve.textContent ="12: "+ data.drinks[0].strMeasure12 +" " + data.drinks[0].strIngredient12;
-  listedIngredientThirteen.textContent ="13: "+ data.drinks[0].strMeasure13 +" " + data.drinks[0].strIngredient13;
-  listedIngredientFourteen.textContent ="14: "+ data.drinks[0].strMeasure14 +" " + data.drinks[0].strIngredient14;
-  listedIngredientFifteen.textContent ="15: "+ data.drinks[0].strMeasure15 +" " + data.drinks[0].strIngredient15;
-
-  
-  modalIngredients.appendChild(listedIngredientOne);
-  modalIngredients.appendChild(listedIngredientTwo);
-  modalIngredients.appendChild(listedIngredientThree);
-  modalIngredients.appendChild(listedIngredientFour);
-  modalIngredients.appendChild(listedIngredientFive);
-  modalIngredients.appendChild(listedIngredientSix);
-  modalIngredients.appendChild(listedIngredientSeven);
-  modalIngredients.appendChild(listedIngredientEight);
-  modalIngredients.appendChild(listedIngredientNine);
-  modalIngredients.appendChild(listedIngredientTen);
-  modalIngredients.appendChild(listedIngredientEleven);
-  modalIngredients.appendChild(listedIngredientTwelve);
-  modalIngredients.appendChild(listedIngredientThirteen);
-  modalIngredients.appendChild(listedIngredientFourteen);
-  modalIngredients.appendChild(listedIngredientFifteen);
-
-  modalTitleEl.textContent = cocktailButton;
-  modalInstuctions.textContent = pulledInstruction
-}) 
+       // this for loop guards against ingrediensts that are undefined from being listed
+      for (let i = 1; i < 16; i++) {
+        if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
+          var listSection = document.createElement("li");
+          listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
+          modalIngredients.appendChild(listSection);
+          event.preventDefault();
+          return false;
+        }
+      }
+      modalTitleEl.textContent = cocktailButton;
+      modalInstuctions.textContent = pulledInstruction
+    }
+    ) 
 }
 
 function fetchEventHandler(event) {
     event.preventDefault();
-      // fiveDayIndex
+     
       var cocktailEl = searchInputEl.value.trim();
       if(cocktailEl){
           fetchCocktails(cocktailEl);
@@ -190,8 +189,7 @@ function fetchEventHandler(event) {
       }
   }
  
-
-function fetchRandomCocktail() {
+randomBtn.onclick = function fetchRandomCocktail() {
   cocktailZeroEl.textContent = "";
   cocktailOneEl.textContent = "";
   cocktailTwoEl.textContent = "";
@@ -209,12 +207,10 @@ function fetchRandomCocktail() {
   cocktailFourteenEl.textContent = "";
   var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   var audio = document.getElementById('audio')
-  
-  randomBtn.onclick = function() {
-    audio.play();
-  }
-
-
+  var modalThumb = document.getElementById('modal-thumb')
+   
+  audio.play();
+  ingredientModal.textContent = '';
 
   fetch(apiUrl)
   .then(function (res) {
@@ -225,39 +221,47 @@ function fetchRandomCocktail() {
   })
   .then(function(data) {
     var cocktail = data.drinks[0].strDrink;
-    console.log(cocktail)
 
-    cocktailOneEl.textContent = cocktail;
-    cocktailOneEl.setAttribute('href', '#modal1')
-    cocktailOneEl.setAttribute('data-target', 'modal1')
-    cocktailOneEl.setAttribute("class", "btn grey darken-3 z-depth-5 modal-trigger cocktail-button");
-    cocktailContainerEl.appendChild(cocktailOneEl);
-    
+    var instructions = data.drinks[0].strInstructions;
+    var picture = data.drinks[0].strDrinkThumb
+    console.log(data.drinks[0].strDrink)
+
+    $('#modal1').show();
+    $('#modal-title').text(cocktail)
+    modalThumb.setAttribute("src",picture + "/preview")
+    modalThumb.setAttribute("alt","thumbnail of selected cocktail")
+    $('#instruction-modal').text(instructions)
+    for (let i = 1; i < 16; i++) {
+      if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
+
+        var listSection = document.createElement("li");
+        listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
+        ingredientModal.appendChild(listSection);
+        
+      }
+    }
+
   })
   .catch(function(err) {
     console.error(err);
   });
 
+}
 
-}
-   /* function displayRandomCocktail(data) {
-    var cocktailDiv = document.getElementById('cocktails')
-    var cocktailName = cocktail.strDrink;
-    var heading = document.createElement('h1');
-    heading.innerHTML = cocktailName;
-    cocktailDiv.appendChild(heading);
-    var cocktailImg = document.createElement('img');
-    cocktailImg.src = cocktail.strDrinkThumb;
-    cocktailDiv.appendChild(cocktailImg);
-    document.body.style.backgroundImage = "url('" + cocktail.strDrinkThumb
-    var cocktailIngredients = document.createElement('ul');
-    cocktailDiv.appendChild(cocktailIngredients);
-}
-searchButton.addEventListener("click",fetchCocktails);
-displayRandomCocktail();*/
+  document.addEventListener('click', function(event) {
+    if (
+      !event.target.closest('#modal1')
+    ) {
+      $('#modal1').hide();
+    }
+    
+  })
+  
+
+   
+
 
 cocktailContainerEl.addEventListener("click", fillModal);
-randomBtn.addEventListener('click',fetchRandomCocktail);
-searchButton.addEventListener("click",fetchEventHandler);
+searchButton.addEventListener("click",fetchCocktails);
 
   
