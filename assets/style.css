@@ -1,11 +1,13 @@
-/*.cocktail-button {
+.cocktail-button {
     margin: 10px;
     padding: 3px;
     height: auto;
 }
-.searched-cocktails {
+/* .searched-cocktails {
     display: flex;
-}
+
+} */
+
 /* 
 body {
     background-image: url(/assets/images/barphoto.jpg);
