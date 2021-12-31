@@ -1,7 +1,10 @@
 .cocktail-button {
-    margin: 2px;
+    margin: 10px;
     padding: 3px;
     height: auto;
+}
+.searched-cocktails {
+    display: flex;
 }
 /* 
 body {
