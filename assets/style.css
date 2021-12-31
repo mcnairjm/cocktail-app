@@ -6,3 +6,8 @@
 .searched-cocktails {
     display: flex;
 }
+/* 
+body {
+    background-image: url(/assets/images/barphoto.jpg);
+    background-size: cover;
+} */
