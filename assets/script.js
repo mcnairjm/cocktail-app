@@ -136,13 +136,13 @@ function fetchCocktails(inputEl) {
       }
     })
     .catch(function (err) {
-      // console.error(err);
+      console.error(err);
     });
   searchInputEl.value = "";
 }
 
 function fillModal(event){
-  console.log(cocktailButton)
+  
   var cocktailButton= event.target.textContent
   
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + cocktailButton ;
