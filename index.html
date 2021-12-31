@@ -1,55 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-wrapper blue-grey darken-1">
-                <a class="brand-logo ">Barback App</a>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav-wrapper light-blue darken-4">
+          <a class="brand-logo">Barback App</a>
+        </div>
+      </nav>
     </header>
-    <!-- hero -->
-    <!-- section that contains cocktail search bar,button, and divs containing searched recipes -->
-    <section id="cocktail-search-container"> 
-        <div class="input-field col s4">    
-            <input id="cocktail-search-id" placeholder="cocktail name" type="text">  
-            <button class="btn btn-large waves-effect blue-grey darken-1 center" id="search-button" type ="submit"><i class="material-icons left">local_drink</i>submit</button>
-            <button class="btn btn-large waves-effect blue-grey darken-1 center" id="random-btn" type ="submit"><i class="material-icons left">whatshot</i>Random</button>
-            <br>
-            <section id="cocktail-container">
-                <div class="row">
-                    <div data-dive ="1" class="col s1" id="cocktail-0-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-1-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-2-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-3-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-4-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-5-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-6-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-7-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-8-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-9-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-10-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-11-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-12-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-13-id"></div>
-                    <div data-dive ="1" class="col s1" id="cocktail-14-id"></div>
-                </div>
-            </section>
-        </div>    
-    </section>
 
-    
-    <br>
-    
+    <div class="row">
+      <!-- hero -->
+      <section class="hero">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel blue-grey lighten-4 z-depth-5">
+            <div class="row valign-wrapper">
+              <div class="col s4">
+                <img
+                  src="https://github.com/mcnairjm/cocktail-app/blob/develop-jonathan/assets/images/Negroni_HERO.jpg?raw=true"
+                  alt="negroni"
+                  class="circle responsive-img"
+                />
+              </div>
+              <div class="col s8">
+                <span class="black-text flow-text">
+                  When you're on the clock, you got 25 tickets and the bar is
+                  three deep, forgetting how to make a certain cocktail is less
+                  than ideal. Barback App lets you refresh your memory quickly.
+                  Just type in the cocktail, and if it exists, we'll tell you
+                  how to make it.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section that contains cocktail search bar,button, and divs containing searched recipes -->
+      <section id="cocktail-search-container">
+        <div class="input-field container col s12">
+          <input
+            id="cocktail-search-id"
+            placeholder="Pick Your Poison"
+            type="text"
+          />
+          <button
+            class="
+              btn btn-large
+              waves-effect
+              light-blue
+              darken-2
+              center
+              z-depth-5
+            "
+            id="search-button"
+            type="submit"
+          >
+            <i class="material-icons right">send</i>Search
+          </button>
+          <button
+            class="
+              btn btn-large
+              waves-effect
+              light-blue
+              darken-2
+              center
+              z-depth-5
+            "
+            id="random-btn"
+            type="submit"
+          >
+            <i class="material-icons left">whatshot</i>Random
+          </button>
+          <br />
+          <section id="cocktail-container">
+            <div class="row">
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-0-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-1-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-2-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-3-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-4-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-5-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-6-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-7-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-8-id"></div>
+              <div data-dive="1" class="col s12 m4 l2" id="cocktail-9-id"></div>
+              <div
+                data-dive="1"
+                class="col s12 m4 l2"
+                id="cocktail-10-id"
+              ></div>
+              <div
+                data-dive="1"
+                class="col s12 m4 l2"
+                id="cocktail-11-id"
+              ></div>
+              <div
+                data-dive="1"
+                class="col s12 m4 l2"
+                id="cocktail-12-id"
+              ></div>
+              <div
+                data-dive="1"
+                class="col s12 m4 l2"
+                id="cocktail-13-id"
+              ></div>
+              <div
+                data-dive="1"
+                class="col s12 m4 l2"
+                id="cocktail-14-id"
+              ></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <br />
+
     <!-- this section contains the history/favorite cocktails -->
     <!-- <section>
         <button>Clear Favorite Cocktails</button>
@@ -57,19 +139,29 @@
     </section>         -->
 
     <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h3 id="modal-title">Cocktail Name</h3>
-      <img id="modal-thumb" src="" alt="">
-      <h4 id='ingredient-title'>Ingredient List</h4>
-      <ul id="ingredient-modal"></ul>
-      <p id="instruction-modal">Instructions</p>
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4 id="modal-title">Cocktail Name</h4>
+        <img id="modal-thumb" src="" alt="" />
+        <ul id="ingredient-modal">
+          Ingredient List
+        </ul>
+        <p id="instruction-modal">Instructions</p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="modal-action modal-close right-align waves-effect"
+          >Close</a
+        >
+      </div>
     </div>
-  </div>
-    <audio id='audio' src='./assets/audio/ice-cubes-glass-daniel_simon.m4a' autoplay='false'></audio>
+    <audio
+      id="audio"
+      src="./assets/audio/ice-cubes-glass-daniel_simon.m4a"
+      autoplay="false"
+    ></audio>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-</body>
+  </body>
 </html>

@@ -111,7 +111,7 @@ function fetchCocktails(inputEl) {
           cocktailButtonEl.textContent = data.drinks[i].strDrink;
           cocktailButtonEl.setAttribute("href", "#modal1")
           cocktailButtonEl.setAttribute("data-target", "modal1")
-          cocktailButtonEl.setAttribute("class", "btn orange modal-trigger cocktail-button");
+          cocktailButtonEl.setAttribute("class", "btn grey darken-3 z-depth-5 modal-trigger cocktail-button");
           
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++ 
@@ -220,10 +220,9 @@ randomBtn.onclick = function fetchRandomCocktail() {
   })
   .then(function(data) {
     var cocktail = data.drinks[0].strDrink;
+
     var instructions = data.drinks[0].strInstructions;
     var picture = data.drinks[0].strDrinkThumb
-    
-    
     console.log(data.drinks[0].strDrink)
 
     $('#modal1').show();
