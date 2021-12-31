@@ -79,7 +79,6 @@ function saveCocktail(event){
   fillFavorites()
 }
 
-
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
   cocktailZeroEl.textContent = "";
@@ -188,9 +187,9 @@ function fetchCocktails(inputEl) {
 }
 
 function fillModal(event){
-  
+  console.log(cocktailButton)
   var cocktailButton= event.target.textContent
-  // console.log(cocktailButton)
+  
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + cocktailButton ;
   
   fetch(apiUrl)
@@ -218,8 +217,6 @@ function fillModal(event){
           var listSection = document.createElement("li");
           listSection.textContent = `${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
           modalIngredients.appendChild(listSection);
-          event.preventDefault();
-          return false;
         }
       }
       modalTitleEl.textContent = cocktailButton;
@@ -227,7 +224,6 @@ function fillModal(event){
       
     }
     ) 
-    
 }
 
 function fetchEventHandler(event) {
@@ -250,7 +246,7 @@ function fetchEventHandler(event) {
       }
   }
  
-randomBtn.onclick = function fetchRandomCocktail() {
+function fetchRandomCocktail() {
   cocktailZeroEl.textContent = "";
   cocktailOneEl.textContent = "";
   cocktailTwoEl.textContent = "";
@@ -269,10 +265,11 @@ randomBtn.onclick = function fetchRandomCocktail() {
   var apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   var audio = document.getElementById('audio')
   var modalThumb = document.getElementById('modal-thumb')
-   
-  audio.play();
-  ingredientModal.textContent = '';
+ 
 
+  randomBtn.onclick = function() {
+    audio.play();
+    
   fetch(apiUrl)
   .then(function (res) {
     if(!res.ok) {
@@ -286,22 +283,13 @@ randomBtn.onclick = function fetchRandomCocktail() {
     var picture = data.drinks[0].strDrinkThumb
     
     
-    console.log(data.drinks[0].strDrink)
+    console.log(data.drinks[0])
 
     $('#modal1').show();
     $('#modal-title').text(cocktail)
     modalThumb.setAttribute("src",picture + "/preview")
-    modalThumb.setAttribute("alt","thumbnail of selected cocktail")
+    
     $('#instruction-modal').text(instructions)
-    for (let i = 1; i < 16; i++) {
-      if(data.drinks[0]["strMeasure" + i] !== null && data.drinks[0]["strIngredient" + i] !== null ) {
-
-        var listSection = document.createElement("li");
-        listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
-        ingredientModal.appendChild(listSection);
-        
-      }
-    }
 
   })
   .catch(function(err) {
@@ -316,18 +304,26 @@ randomBtn.onclick = function fetchRandomCocktail() {
     ) {
       $('#modal1').hide();
     }
-    
   })
-  
 
-   
-
+}
+   /* function displayRandomCocktail(data) {
+    var cocktailDiv = document.getElementById('cocktails')
+    var cocktailName = cocktail.strDrink;
+    var heading = document.createElement('h1');
+    heading.innerHTML = cocktailName;
+    cocktailDiv.appendChild(heading);
+    var cocktailImg = document.createElement('img');
+    cocktailImg.src = cocktail.strDrinkThumb;
+    cocktailDiv.appendChild(cocktailImg);
+    document.body.style.backgroundImage = "url('" + cocktail.strDrinkThumb
+    var cocktailIngredients = document.createElement('ul');
+    cocktailDiv.appendChild(cocktailIngredients);
+}
+searchButton.addEventListener("click",fetchCocktails);
+displayRandomCocktail();*/
 
 cocktailContainerEl.addEventListener("click", fillModal);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> develop-luke
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
 modalContainer.addEventListener("click", saveCocktail);
@@ -336,11 +332,5 @@ historyEl.addEventListener("click", fillModal)
 
 
 
-<<<<<<< HEAD
-=======
-searchButton.addEventListener("click",fetchCocktails);
->>>>>>> 80f2483ddc53dcef626d08256fdc957ac2c1849f
-=======
->>>>>>> develop-luke
 
   
