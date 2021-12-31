@@ -64,7 +64,7 @@ function fetchCocktails(inputEl) {
           cocktailButtonEl.textContent = data.drinks[i].strDrink;
           cocktailButtonEl.setAttribute("href", "#modal1")
           cocktailButtonEl.setAttribute("data-target", "modal1")
-          cocktailButtonEl.setAttribute("class", "btn black modal-trigger cocktail-button");
+          cocktailButtonEl.setAttribute("class", "btn grey darken-3 z-depth-5 modal-trigger cocktail-button");
           
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++ 
@@ -230,7 +230,7 @@ function fetchRandomCocktail() {
     cocktailOneEl.textContent = cocktail;
     cocktailOneEl.setAttribute('href', '#modal1')
     cocktailOneEl.setAttribute('data-target', 'modal1')
-    cocktailOneEl.setAttribute("class", "btn black modal-trigger cocktail-button");
+    cocktailOneEl.setAttribute("class", "btn grey darken-3 z-depth-5 modal-trigger cocktail-button");
     cocktailContainerEl.appendChild(cocktailOneEl);
     
   })
