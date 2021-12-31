@@ -42,7 +42,6 @@ function fetchCocktails(inputEl) {
   cocktailThirteenEl.textContent = "";
   cocktailFourteenEl.textContent = "";
 
-
   var inputEl = searchInputEl.value.toLowerCase().trim();
   var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + inputEl ;
   
@@ -238,7 +237,6 @@ randomBtn.onclick = function fetchRandomCocktail() {
         var listSection = document.createElement("li");
         listSection.textContent = `${i}: ${data.drinks[0]["strMeasure" + i]} ${data.drinks[0]["strIngredient" +i]}`;
         ingredientModal.appendChild(listSection);
-        
       }
     }
 
@@ -255,7 +253,7 @@ randomBtn.onclick = function fetchRandomCocktail() {
     ) {
       $('#modal1').hide();
     }
-    
+    return
   })
   
 
