@@ -1,4 +1,4 @@
-.cocktail-button {
+/*.cocktail-button {
     margin: 10px;
     padding: 3px;
     height: auto;
@@ -11,3 +11,7 @@ body {
     background-image: url(/assets/images/barphoto.jpg);
     background-size: cover;
 } */
+
+#modal1 {
+    justify-content: center;
+}
