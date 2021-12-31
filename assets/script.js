@@ -26,6 +26,8 @@ var saveHistory = document.getElementById("saved-cocktail")
 var historyEl = document.getElementById("history-list-container")
 var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
+var buttonFooterEl = document.getElementById("button-footer");
+var buttonFooterParentEl = document.getElementById("modal-footer-id")
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -267,6 +269,7 @@ cocktailContainerEl.addEventListener("click", fillModal);
 // searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
-modalContainer.addEventListener("click", saveCocktail);
+buttonFooterParentEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
+
