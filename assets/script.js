@@ -1,6 +1,7 @@
 var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
 var searchButton = document.getElementById("search-button");
 var searchInputEl = document.getElementById("cocktail-search-id");
+var cocktailSearchContainerEl = document.getElementById("cocktail-search-container");
 var cocktailContainerEl = document.getElementById("cocktail-container");
 var cocktailZeroEl = document.getElementById("cocktail-0-id");
 var cocktailOneEl = document.getElementById("cocktail-1-id");
@@ -125,7 +126,7 @@ function fetchCocktails(inputEl) {
           
 
           cocktailButtonEl.textContent = data.drinks[i].strDrink;
-          // cocktailButtonEl.setAttribute("href", "#modal1");
+          cocktailButtonEl.setAttribute("href", "#modal1");
           cocktailButtonEl.setAttribute("data-target", "modal1");
           cocktailButtonEl.setAttribute(
             "class",
@@ -268,7 +269,7 @@ document.addEventListener("click", function (event) {
 cocktailContainerEl.addEventListener("click", fillModal);
 // searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
-searchButton.addEventListener("click",fetchEventHandler);
+cocktailSearchContainerEl.addEventListener("submit",fetchEventHandler);
 buttonFooterParentEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
