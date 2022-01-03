@@ -54,7 +54,7 @@ function fillFavorites() {
             
     var listedCocktail = document.createElement("li");
     var historyButton = document.createElement("button");
-    historyButton.setAttribute("class","btn blue modal-trigger cocktail-button" )
+    historyButton.setAttribute("class","btn btn-large light-blue darken-2 waves-effect z-depth-5 modal-trigger cocktail-button" )
     historyButton.setAttribute("href", "#modal1")
     historyButton.textContent = storedName;
     listedCocktail.appendChild(historyButton);
@@ -129,7 +129,7 @@ function fetchCocktails(inputEl) {
           cocktailButtonEl.setAttribute("data-target", "modal1");
           cocktailButtonEl.setAttribute(
             "class",
-            "btn grey darken-3 z-depth-5 btn modal-trigger cocktail-button"
+            "btn grey darken-3 z-depth-5 btn-large modal-trigger cocktail-button"
           );
 
           cocktailOneEl.appendChild(cocktailButtonEl);
