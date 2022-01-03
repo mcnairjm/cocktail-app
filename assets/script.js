@@ -267,7 +267,6 @@ document.addEventListener("click", function (event) {
 });
 
 cocktailContainerEl.addEventListener("click", fillModal);
-// searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 cocktailSearchContainerEl.addEventListener("submit",fetchEventHandler);
 buttonFooterParentEl.addEventListener("click", saveCocktail);
