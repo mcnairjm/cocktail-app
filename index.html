@@ -57,12 +57,11 @@
     <!-- section that contains cocktail search bar,button, and divs containing searched recipes -->
     <section id="cocktail-search-container">
       <div class="section section-search center col push-s2 s8">
-        <div id="input-button-parent">
-        <input id="cocktail-search-id" placeholder="Pick Your Poison" type="text" class="white grey-text" />
-        <button class="btn btn-large waves-effect light-blue darken-2 center z-depth-5" id="search-button"
-          type="submit">
+        <form id="search-form">
+            <input id="cocktail-search-id" placeholder="Pick Your Poison" type="text" class="white grey-text" />
+            <button class="btn btn-large waves-effect light-blue darken-2 center z-depth-5" id="search-button" type="submit">
           <i class="material-icons right">send</i>Search</button>
-
+        </form>
         <button href="#modal1" class="btn btn-large waves-effect red accent-3 z-depth-5 center modal-trigger"
           id="random-btn" type="submit">
           <i class="material-icons left">whatshot</i>Random</button>

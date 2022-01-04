@@ -31,6 +31,7 @@ var buttonFooterEl = document.getElementById("button-footer");
 var buttonFooterParentEl = document.getElementById("modal-footer-id")
 var formEl = document.getElementById("form-listener-id")
 // var wikiLinkEl = document.getElementsById('wiki-link')
+var searchFormEl = document.getElementById("search-form")
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -296,7 +297,7 @@ function fetchWiki(event) {
 
 cocktailContainerEl.addEventListener("click", fillModal);
 randomBtn.addEventListener('click',fetchRandomCocktail);
-searchButton.addEventListener("click",fetchEventHandler);
+searchFormEl.addEventListener("click",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
