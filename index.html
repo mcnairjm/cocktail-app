@@ -57,21 +57,20 @@
     <!-- section that contains cocktail search bar,button, and divs containing searched recipes -->
     <section id="cocktail-search-container">
       <div class="section section-search center col push-s2 s8">
-        <input id="cocktail-search-id" placeholder="Pick Your Poison" type="text" class="white grey-text" />
-        <button class="btn btn-large waves-effect light-blue darken-2 center z-depth-5" id="search-button"
-          type="submit">
+        <form id="search-form">
+            <input id="cocktail-search-id" placeholder="Pick Your Poison" type="text" class="white grey-text" />
+            <button class="btn btn-large waves-effect light-blue darken-2 center z-depth-5" id="search-button" type="submit">
           <i class="material-icons right">send</i>Search</button>
-
-        <button href="#modal1" class="btn btn-large waves-effect red accent-3 z-depth-5 center modal-trigger"
+          <button href="#modal1" class="btn btn-large waves-effect red accent-3 z-depth-5 center modal-trigger"
           id="random-btn" type="submit">
           <i class="material-icons left">whatshot</i>Random</button>
-
-        <!-- <div id="button-parent" class="col s6"> -->
-        <button id="clear-button" class="btn btn-large waves-effect deep-orange z-depth-5 ">Clear Favorite
-          Cocktails</button>
-        <ul class="history-list" id="history-list-container"></ul>
+        </form>
+        <div>
+            <button id="clear-button" class="btn btn-large waves-effect deep-orange z-depth-5 ">Clear Favorite Cocktails</button>
+            <ul class="history-list" id="history-list-container"></ul>
+        </div>
       </div>
-      <form id="cocktail-container">
+      <section id="cocktail-container">
         <div class="row">
           <div class="col s12">
             <div data-dive="1" class="col s12 m4 l2" id="cocktail-0-id"></div>
