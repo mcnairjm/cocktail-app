@@ -1,6 +1,7 @@
 var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
 var searchButton = document.getElementById("search-button");
 var searchInputEl = document.getElementById("cocktail-search-id");
+var cocktailSearchContainerEl = document.getElementById("cocktail-search-container");
 var cocktailContainerEl = document.getElementById("cocktail-container");
 var cocktailZeroEl = document.getElementById("cocktail-0-id");
 var cocktailOneEl = document.getElementById("cocktail-1-id");
