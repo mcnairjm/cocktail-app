@@ -29,6 +29,7 @@ var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
 var buttonFooterEl = document.getElementById("button-footer");
 var buttonFooterParentEl = document.getElementById("modal-footer-id")
+var wikiLinkEl = document.getElementsById('wiki-link')
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -270,6 +271,11 @@ document.addEventListener("click", function (event) {
   return;
 });
 
+
+function fetchWiki() {
+  
+}
+
 cocktailContainerEl.addEventListener("click", fillModal);
 // searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
@@ -277,4 +283,5 @@ searchButton.addEventListener("click",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
+wikiLinkEl.addEventListener('click', fetchWiki)
 
