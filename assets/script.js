@@ -138,6 +138,7 @@ function fetchCocktails(inputEl) {
 
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++;
+          cocktailButtonEl.addEventListener('click', fillModal)
         }
       }
     })
@@ -297,7 +298,7 @@ function fetchWiki(event) {
   });
 }
 
-cocktailContainerEl.addEventListener("click", fillModal);
+//cocktailContainerEl.addEventListener("click", fillModal);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchFormEl.addEventListener("click",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
