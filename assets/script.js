@@ -223,6 +223,7 @@ function fetchRandomCocktail() {
   ingredientModal.textContent = "";
   
   randomBtn.setAttribute("data-target", "modal1");
+ 
   
   fetch(apiUrl)
     .then(function (res) {
