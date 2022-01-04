@@ -273,7 +273,7 @@ cocktailContainerEl.addEventListener("click", fillModal);
 // searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
-buttonFooterParentEl.addEventListener("click", saveCocktail);
+buttonFooterEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
 
