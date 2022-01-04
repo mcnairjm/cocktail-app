@@ -85,6 +85,7 @@ function saveCocktail(event){
   fillFavorites()
 }
 
+
 function fetchCocktails(inputEl) {
   // this clears all cocktail divs for the next search
   cocktailZeroEl.textContent = "";
