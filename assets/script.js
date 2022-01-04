@@ -1,7 +1,7 @@
 var apiUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`;
 var searchButton = document.getElementById("search-button");
 var searchInputEl = document.getElementById("cocktail-search-id");
-var cocktailSearchContainerEl = document.getElementById("cocktail-search-container");
+var cocktailSearchContainerEl = document.getElementById("input-button-parent");
 var cocktailContainerEl = document.getElementById("cocktail-container");
 var cocktailZeroEl = document.getElementById("cocktail-0-id");
 var cocktailOneEl = document.getElementById("cocktail-1-id");
@@ -29,7 +29,7 @@ var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
 var buttonFooterEl = document.getElementById("button-footer");
 var buttonFooterParentEl = document.getElementById("modal-footer-id")
-// var wikiLinkEl = document.getElementsById('wiki-link')
+var wikiLinkEl = document.getElementsById('wiki-link')
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -283,5 +283,5 @@ cocktailSearchContainerEl.addEventListener("submit",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
-// wikiLinkEl.addEventListener('click', fetchWiki)
+wikiLinkEl.addEventListener('click', fetchWiki)
 
