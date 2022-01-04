@@ -12,10 +12,20 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="nav-wrapper light-blue darken-4">
-        <a class="brand-logo center">Barback App</a>
+  <header id="header-id">
+    <nav class="light-blue darken-4">
+      <div class="navbar-fixed">
+        <div class="nav-wrapper">
+          <div class="headline">
+            <a class="brand-logo center">Barback App</a>
+          </div>
+          <div class="col right input-field">
+            <h6>Wiki-search</h6>
+                <form id="form-listener-id">      
+                    <input type="text" class="white grey-text right-aligned" placeholder="Martini10" id="wiki-search">
+                </form>
+        </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -52,8 +62,7 @@
           type="submit">
           <i class="material-icons right">send</i>Search</button>
 
-        <button href="#modal1"
-          class="btn btn-large waves-effect red accent-3 z-depth-5 center modal-trigger"
+        <button href="#modal1" class="btn btn-large waves-effect red accent-3 z-depth-5 center modal-trigger"
           id="random-btn" type="submit">
           <i class="material-icons left">whatshot</i>Random</button>
 
@@ -82,7 +91,7 @@
             <div data-dive="1" class="col s12 m4 l2" id="cocktail-14-id"></div>
           </div>
         </div>
-      </section>
+    </section>
   </div>
   </section>
   </div>
@@ -99,7 +108,6 @@
     </div>
     <div id="modal-footer-id" class="modal-footer">
       <a id="button-footer" href="" class="modal-action modal-close right-align waves-effect">Save to Favorites</a>
-      <br>
     </div>
   </div>
   <!-- <audio

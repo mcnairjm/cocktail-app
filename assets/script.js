@@ -29,8 +29,8 @@ var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
 var buttonFooterEl = document.getElementById("button-footer");
 var buttonFooterParentEl = document.getElementById("modal-footer-id")
-var wikiLinkEl = document.getElementById('wiki-link')
-
+var formEl = document.getElementById("form-listener-id")
+// var wikiLinkEl = document.getElementsById('wiki-link')
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -274,35 +274,12 @@ document.addEventListener("click", function (event) {
   return;
 });
 
-
-/*function fetchWiki(event) {
-//var cocktailName = document.getElementById('modal-title')
-event.preventDefault();
-var wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + ''
-fetch(wikiUrl) 
-.then(function (res) {
-  if (!res.ok) {
-    throw Error("Error");
-  }
-  return res.json();
-})
-.then(function (data) {
-  console.log(data)
-}) 
-.catch(function (err) {
-  console.error(err);
-});
-
-
-
-
-}*/
 function fetchWiki(event) {
-  var cocktailName = document.getElementById('modal-title')
   event.preventDefault();
-  var wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/beer' 
-  console.log(wikiUrl)
-  fetch(wikiUrl) 
+  var cocktailInputEL = document.getElementById('wiki-search')
+  var wikiSearch =cocktailInputEL.value.toLowerCase().trim();
+  var wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + wikiSearch
+  fetch(wikiUrl)
   .then(function (res) {
     if (!res.ok) {
       throw Error("Error");
@@ -310,18 +287,19 @@ function fetchWiki(event) {
     return res.json();
   })
   .then(function (data) {
-    console.log(data)
-  }) 
+    console.log(data.content_urls.desktop.page)
+    var wikiSearchText = data.content_urls.desktop.page
+    window.open(wikiSearchText,'_blank');
+  })
   .catch(function (err) {
     console.error(err);
   });
 }
 
 cocktailContainerEl.addEventListener("click", fillModal);
-// searchButton.addEventListener("click", fetchCocktails);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchButton.addEventListener("click",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
-wikiLinkEl.addEventListener('click', fetchWiki);
+formEl.addEventListener("submit",fetchWiki)
