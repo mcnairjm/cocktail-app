@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>API:Search - MediaWiki</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"7f177992-6af6-40b3-8a76-a78d6afabe60","wgCSPNonce":false,"wgCanonicalNamespace":"API","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":104,"wgPageName":"API:Search","wgTitle":"Search","wgCurRevisionId":4698360,"wgRevisionId":4698360,"wgArticleId":54880,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["MediaWiki action API","MediaWiki API query lists"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"API:Search","wgRelevantArticleId":54880,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVisualEditor":{
+"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":4000,"wgNoticeProject":"mediawiki","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/API:Search","wgEditSubmitButtonLabelPublish":true,"wgTranslatePageTranslation":"source","wgCentralAuthMobileDomain":false,"wgULSPosition":"personal","wgULSisCompactLinksEnabled":true};RLSTATE={"ext.gadget.site-styles":"ready","ext.gadget.CharInsertButtons":"ready","ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.translate":"ready","ext.translate.tag.languages":"ready","mediawiki.hlist":"ready","mediawiki.apipretty":"ready","ext.pygments":"ready","skins.vector.styles.legacy":
+"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.translate.edit.documentation.styles":"ready","ext.uls.pt":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js","ext.gadget.site","ext.gadget.tabbedwindow","ext.gadget.Edittools","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.translate.pagetranslation.uls","ext.translate.edit.documentation","ext.centralauth.centralautologin","ext.uls.compactlinks","ext.uls.interface"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.pygments%2Ctranslate%2CwikimediaBadges%7Cext.translate.edit.documentation.styles%7Cext.translate.tag.languages%7Cext.uls.pt%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.apipretty%2Chlist%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=ext.gadget.CharInsertButtons%2Csite-styles&amp;only=styles&amp;skin=vector"/>
+<link rel="stylesheet" href="/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.38.0-wmf.13"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="API:Search - MediaWiki"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="//upload.wikimedia.org"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="//m.mediawiki.org/wiki/API:Search"/>
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=API:Search&amp;action=edit"/>
+<link rel="apple-touch-icon" href="/static/apple-touch/mediawiki.png"/>
+<link rel="shortcut icon" href="/static/favicon/mediawiki.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="MediaWiki (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="//www.mediawiki.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://www.mediawiki.org/wiki/API:Search"/>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<link rel="dns-prefetch" href="//login.wikimedia.org"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-104 ns-subject mw-editable page-API_Search rootpage-API_Search skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading" >API:Search</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From mediawiki.org</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-pt-translate-header noprint nomobile" dir="ltr" lang="en"><a href="/w/index.php?title=Special:Translate&amp;group=page-API%3ASearch&amp;action=page&amp;filter=" title="Special:Translate">Translate this page</a></div><div class="mw-parser-output"><div class="mw-pt-languages noprint" lang="en" dir="ltr"><div class="mw-pt-languages-label">Other languages:</div><ul class="mw-pt-languages-list"><li><a href="/wiki/API:Search/de" class="mw-pt-progress mw-pt-progress--complete" title="API:Suche (100% translated)" lang="de" dir="ltr">Deutsch</a></li>
+<li><span class="mw-pt-languages-ui mw-pt-languages-selected mw-pt-progress mw-pt-progress--complete" lang="en" dir="ltr">English</span></li>
+<li><a href="/wiki/API:Search/tr" class="mw-pt-progress mw-pt-progress--complete" title="API:Search (100% translated)" lang="tr" dir="ltr">Türkçe</a></li>
+<li><a href="/wiki/API:Search/da" class="mw-pt-progress mw-pt-progress--low" title="API:Søg (28% translated)" lang="da" dir="ltr">dansk</a></li>
+<li><a href="/wiki/API:Search/es" class="mw-pt-progress mw-pt-progress--complete" title="API:Búsqueda (100% translated)" lang="es" dir="ltr">español</a></li>
+<li><a href="/wiki/API:Search/fr" class="mw-pt-progress mw-pt-progress--complete" title="API:Search/fr (100% translated)" lang="fr" dir="ltr">français</a></li>
+<li><a href="/wiki/API:Search/pl" class="mw-pt-progress mw-pt-progress--high" title="API:Search (60% translated)" lang="pl" dir="ltr">polski</a></li>
+<li><a href="/wiki/API:Search/ru" class="mw-pt-progress mw-pt-progress--high" title="API:Search/ru (68% translated)" lang="ru" dir="ltr">русский</a></li>
+<li><a href="/wiki/API:Search/bn" class="mw-pt-progress mw-pt-progress--low" title="API:Search/bn (20% translated)" lang="bn" dir="ltr">বাংলা</a></li>
+<li><a href="/wiki/API:Search/th" class="mw-pt-progress mw-pt-progress--high" title="API:ค้นหา (72% translated)" lang="th" dir="ltr">ไทย</a></li>
+<li><a href="/wiki/API:Search/zh" class="mw-pt-progress mw-pt-progress--complete" title="API:搜索 (100% translated)" lang="zh" dir="ltr">中文</a></li>
+<li><a href="/wiki/API:Search/ja" class="mw-pt-progress mw-pt-progress--complete" title="API:検索 (80% translated)" lang="ja" dir="ltr">日本語</a></li></ul></div>
+<style data-mw-deduplicate="TemplateStyles:r4705729">.mw-parser-output table.ombox{margin:4px 10%;border-collapse:collapse;border:1px solid #a2a9b1;background-color:#f8f9fa;box-sizing:border-box}.mw-parser-output .ombox td.mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .ombox th.mbox-text,.mw-parser-output .ombox td.mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .ombox td.mbox-image{border:none;text-align:center;padding:2px 0 2px 0.9em}.mw-parser-output .ombox td.mbox-imageright{border:none;text-align:center;padding:2px 0.9em 2px 0}.mw-parser-output table.ombox-notice{border-color:#a2a9b1}.mw-parser-output table.ombox-speedy{background-color:#fee7e6}.mw-parser-output table.ombox-speedy,.mw-parser-output table.ombox-delete{border-color:#b32424;border-width:2px}.mw-parser-output table.ombox-content{border-color:#f28500}.mw-parser-output table.ombox-style{border-color:#fc3}.mw-parser-output table.ombox-move{border-color:#9932cc}.mw-parser-output table.ombox-protection{border-color:#a2a9b1;border-width:2px}html body.mediawiki .mw-parser-output .ombox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;box-sizing:border-box;width:238px;font-size:88%;line-height:1.25em}</style><table class="plainlinks plainlinks ombox ombox-content" role="presentation" style="display: block; color:#222; border:solid 1px #A8A8A8; padding: .5em 1em; margin:0.5em 0em;"><tbody><tr><td class="mbox-image"><span typeof="mw:Image"><span><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/API_-_The_Noun_Project.svg/30px-API_-_The_Noun_Project.svg.png" decoding="async" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/API_-_The_Noun_Project.svg/45px-API_-_The_Noun_Project.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f6/API_-_The_Noun_Project.svg/60px-API_-_The_Noun_Project.svg.png 2x" data-file-width="512" data-file-height="512" /></span></span></td><td class="mbox-text">This page is part of the <a href="/wiki/Special:MyLanguage/API:Main_page" title="Special:MyLanguage/API:Main page">MediaWiki Action API</a> documentation.</td></tr></tbody></table>
+<table role="navigation" class="vertical-navbox nowraplinks noprint" style="float: right; clear: right; background-color: #f8f9fa; border: 1px solid #a2a9b1; width:22em; margin: 0 0 1em 1em; padding: 0.2em; border-spacing: 0.4em 0; text-align: center; line-height: 1.4em; font-size: 88%; text-align: left; padding: 1.5em; margin: 0 0 2em 2em; min-width: 350px;" cellpadding="0"><tbody><tr>
+<th class="" style="padding: 0.2em 0.4em 0.2em; font-size: 145%; line-height: 1.2em; font-size: 19px; font-weight: 700;"><a href="/wiki/Special:MyLanguage/API:Main_page" title="Special:MyLanguage/API:Main page">MediaWiki Action API</a><span style="display:none"><a href="/wiki/API:Main_page" title="API:Main page"> </a></span></th>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Basics</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><a href="/wiki/Special:MyLanguage/API:Etiquette" title="Special:MyLanguage/API:Etiquette">Etiquette and usage guidelines</a><span style="display:none"><a href="/wiki/API:Etiquette" title="API:Etiquette"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Query" title="Special:MyLanguage/API:Query">All Query modules</a><span style="display:none"><a href="/wiki/API:Query" title="API:Query"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Properties" title="Special:MyLanguage/API:Properties">Get properties of pages</a><span style="display:none"><a href="/wiki/API:Properties" title="API:Properties"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Lists" title="Special:MyLanguage/API:Lists">List pages matching a criterion</a><span style="display:none"><a href="/wiki/API:Lists" title="API:Lists"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Parameter_information" title="Special:MyLanguage/API:Parameter information">Get module parameters information</a><span style="display:none"><a href="/wiki/API:Parameter_information" title="API:Parameter information"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Meta" title="Special:MyLanguage/API:Meta">Get meta information about the wiki and user</a><span style="display:none"><a href="/wiki/API:Meta" title="API:Meta"> </a></span></li></ul></td>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Authentication</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><a href="/wiki/Special:MyLanguage/API:Tokens" title="Special:MyLanguage/API:Tokens">Get tokens for data modifying operations</a><span style="display:none"><a href="/wiki/API:Tokens" title="API:Tokens"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Login" title="Special:MyLanguage/API:Login">Login</a><span style="display:none"><a href="/wiki/API:Login" title="API:Login"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Logout" title="Special:MyLanguage/API:Logout">Logout</a><span style="display:none"><a href="/wiki/API:Logout" title="API:Logout"> </a></span></li></ul></td>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Accounts and Users</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><a href="/wiki/Special:MyLanguage/API:Account_creation" title="Special:MyLanguage/API:Account creation">Create an account</a><span style="display:none"><a href="/wiki/API:Account_creation" title="API:Account creation"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Block" title="Special:MyLanguage/API:Block">Block or unblock a user</a><span style="display:none"><a href="/wiki/API:Block" title="API:Block"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Userinfo" title="Special:MyLanguage/API:Userinfo">Get info about the current user</a><span style="display:none"><a href="/wiki/API:Userinfo" title="API:Userinfo"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Watchlist_feed" title="Special:MyLanguage/API:Watchlist feed">Get the current user's watchlist as a feed</a><span style="display:none"><a href="/wiki/API:Watchlist_feed" title="API:Watchlist feed"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Options" title="Special:MyLanguage/API:Options">Change user options</a><span style="display:none"><a href="/wiki/API:Options" title="API:Options"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:User_group_membership" title="Special:MyLanguage/API:User group membership">Change user group membership</a><span style="display:none"><a href="/wiki/API:User_group_membership" title="API:User group membership"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Emailuser" title="Special:MyLanguage/API:Emailuser">Send an email</a><span style="display:none"><a href="/wiki/API:Emailuser" title="API:Emailuser"> </a></span></li></ul></td>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Page Operations</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><a href="/wiki/Special:MyLanguage/API:Edit" title="Special:MyLanguage/API:Edit">Create and edit a page</a><span style="display:none"><a href="/wiki/API:Edit" title="API:Edit"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Get_the_contents_of_a_page" title="Special:MyLanguage/API:Get the contents of a page">Get the contents of a page</a><span style="display:none"><a href="/wiki/API:Get_the_contents_of_a_page" title="API:Get the contents of a page"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Upload" title="Special:MyLanguage/API:Upload">Upload a file</a><span style="display:none"><a href="/wiki/API:Upload" title="API:Upload"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Import" title="Special:MyLanguage/API:Import">Import a page</a><span style="display:none"><a href="/wiki/API:Import" title="API:Import"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Delete" title="Special:MyLanguage/API:Delete">Delete a page</a><span style="display:none"><a href="/wiki/API:Delete" title="API:Delete"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Parsing_wikitext" title="Special:MyLanguage/API:Parsing wikitext">Parse content of a page</a><span style="display:none"><a href="/wiki/API:Parsing_wikitext" title="API:Parsing wikitext"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Watch" title="Special:MyLanguage/API:Watch">Watch or unwatch a page</a><span style="display:none"><a href="/wiki/API:Watch" title="API:Watch"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Purge" title="Special:MyLanguage/API:Purge">Purge cache for page(s)</a><span style="display:none"><a href="/wiki/API:Purge" title="API:Purge"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Rollback" title="Special:MyLanguage/API:Rollback">Rollback a page</a><span style="display:none"><a href="/wiki/API:Rollback" title="API:Rollback"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Move" title="Special:MyLanguage/API:Move">Move a page</a><span style="display:none"><a href="/wiki/API:Move" title="API:Move"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Patrol" title="Special:MyLanguage/API:Patrol">Patrol a page or revision</a><span style="display:none"><a href="/wiki/API:Patrol" title="API:Patrol"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Undelete" title="Special:MyLanguage/API:Undelete">Restore revisions of a deleted page</a><span style="display:none"><a href="/wiki/API:Undelete" title="API:Undelete"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Protect" title="Special:MyLanguage/API:Protect">Change a page's protection level</a><span style="display:none"><a href="/wiki/API:Protect" title="API:Protect"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:SetPageLanguage" title="Special:MyLanguage/API:SetPageLanguage">Change a page's language</a><span style="display:none"><a href="/wiki/API:SetPageLanguage" title="API:SetPageLanguage"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Changing_wiki_content" title="Special:MyLanguage/API:Changing wiki content">More...</a><span style="display:none"><a href="/wiki/API:Changing_wiki_content" title="API:Changing wiki content"> </a></span></li></ul></td>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Search</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><b><a href="/wiki/Special:MyLanguage/API:Search" title="Special:MyLanguage/API:Search">Search for a title or text</a></b><span style="display:none"><a class="mw-selflink selflink"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Opensearch" title="Special:MyLanguage/API:Opensearch">Fetch results in an OpenSearch format</a><span style="display:none"><a href="/wiki/API:Opensearch" title="API:Opensearch"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Geosearch" title="Special:MyLanguage/API:Geosearch">Search for wiki pages near a location</a><span style="display:none"><a href="/wiki/API:Geosearch" title="API:Geosearch"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Languagesearch" title="Special:MyLanguage/API:Languagesearch">Search for a language</a><span style="display:none"><a href="/wiki/API:Languagesearch" title="API:Languagesearch"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Prefixsearch" title="Special:MyLanguage/API:Prefixsearch">Perform a prefix search for page titles</a><span style="display:none"><a href="/wiki/API:Prefixsearch" title="API:Prefixsearch"> </a></span></li></ul></td>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Developer Utilities</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><a href="/wiki/Special:MyLanguage/API:Client_code" title="Special:MyLanguage/API:Client code">Access libraries</a><span style="display:none"><a href="/wiki/API:Client_code" title="API:Client code"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Cross-site_requests" title="Special:MyLanguage/API:Cross-site requests">Cross-site requests</a><span style="display:none"><a href="/wiki/API:Cross-site_requests" title="API:Cross-site requests"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Extensions" title="Special:MyLanguage/API:Extensions">Creating an API module in an extension</a><span style="display:none"><a href="/wiki/API:Extensions" title="API:Extensions"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Calling_internally" title="Special:MyLanguage/API:Calling internally">Using the API in MediaWiki and extensions</a><span style="display:none"><a href="/wiki/API:Calling_internally" title="API:Calling internally"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Restricting_API_usage" title="Special:MyLanguage/API:Restricting API usage">Restricting API usage</a><span style="display:none"><a href="/wiki/API:Restricting_API_usage" title="API:Restricting API usage"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Localisation" title="Special:MyLanguage/API:Localisation">Localisation</a><span style="display:none"><a href="/wiki/API:Localisation" title="API:Localisation"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Implementation_Strategy" title="Special:MyLanguage/API:Implementation Strategy">Implementation Strategy</a><span style="display:none"><a href="/wiki/API:Implementation_Strategy" title="API:Implementation Strategy"> </a></span></li></ul></td>
+</tr><tr>
+<th class="" style="padding-top: 0.2em; font-size: 16px; font-weight: 700; padding-top: 1em;;">Tutorials</th>
+</tr><tr>
+<td class="" style="padding-bottom: 0.2em; ;">
+<ul><li><a href="/wiki/Special:MyLanguage/API:Tutorial" title="Special:MyLanguage/API:Tutorial">Action API Tutorial</a><span style="display:none"><a href="/wiki/API:Tutorial" title="API:Tutorial"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Article_ideas_generator" title="Special:MyLanguage/API:Article ideas generator">Article ideas generator</a><span style="display:none"><a href="/wiki/API:Article_ideas_generator" title="API:Article ideas generator"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Nearby_places_viewer" title="Special:MyLanguage/API:Nearby places viewer">Nearby places viewer</a><span style="display:none"><a href="/wiki/API:Nearby_places_viewer" title="API:Nearby places viewer"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Picture_of_the_day_viewer" title="Special:MyLanguage/API:Picture of the day viewer">Picture of the day viewer</a><span style="display:none"><a href="/wiki/API:Picture_of_the_day_viewer" title="API:Picture of the day viewer"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:Holidays_viewer" title="Special:MyLanguage/API:Holidays viewer">Holidays viewer</a><span style="display:none"><a href="/wiki/API:Holidays_viewer" title="API:Holidays viewer"> </a></span></li></ul></td>
+</tr><tr>
+<td style="text-align: right; font-size: 115%;"><style data-mw-deduplicate="TemplateStyles:r4692751">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar ul{display:inline;white-space:nowrap}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em;width:6em}</style><span class="noprint plainlinks navbar" style=""><small><span style="white-space:nowrap;word-spacing:-.12em;"><a href="/wiki/Template:API" title="Template:API"><span style="" title="View this template">v</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a class="external text" href="https://www.mediawiki.org/wiki/Template_talk:API"><span style="" title="Discuss this template">d</span></a><span style="">&#32;<b>&#183;</b>&#32;</span><a class="external text" href="https://www.mediawiki.org/w/index.php?title=Template:API&amp;action=edit"><span style="" title="Edit this template">e</span></a></span></small></span></td>
+</tr>
+</tbody></table>
+<style data-mw-deduplicate="TemplateStyles:r4199130">.mw-parser-output .mw-version{border:1px solid #72777d;font-size:80%;line-height:1.2;border-collapse:collapse}.mw-parser-output .mw-version-ltr{float:right;margin:0 0 .5em .5em;text-align:right}.mw-parser-output .mw-version-rtl{float:left;margin:0 .5em .5em 0;text-align:left}.mw-parser-output .mw-version td{padding:.1em .3em}.mw-parser-output .mw-version-versionbox{border:5px solid #00af89;text-align:center}.mw-parser-output .mw-version-versionnumber{font-weight:bold;font-size:180%}.mw-parser-output .mw-version-version .mw-version-versionbox{border-color:#c8ccd1}.mw-parser-output .mw-version.mw-version-version2 .mw-version-versionbox{border-top-color:#c8ccd1;border-right-color:#c8ccd1;border-left-color:#c8ccd1}.mw-parser-output .mw-version-version-unsupported .mw-version-versionbox{border-color:#d33}.mw-parser-output .mw-version.mw-version-version2-unsupported .mw-version-versionbox{border-top-color:#d33;border-right-color:#d33;border-left-color:#d33}.mw-parser-output .mw-version-version-legacy .mw-version-versionbox{border-color:#f93}.mw-parser-output .mw-version.mw-version-version2-legacy .mw-version-versionbox{border-top-color:#f93;border-right-color:#f93;border-left-color:#f93}.mw-parser-output .mw-version-version-stable .mw-version-versionbox,.mw-parser-output .mw-version.mw-version.mw-version-and-later .mw-version-versionbox{border-color:#00af89}.mw-parser-output .mw-version.mw-version-version2-stable .mw-version-versionbox{border-top-color:#00af89;border-right-color:#00af89;border-left-color:#00af89}.mw-parser-output .mw-version-version-future .mw-version-versionbox{border-color:#8080c0}.mw-parser-output .mw-version.mw-version-version2-future .mw-version-versionbox{border-top-color:#8080c0;border-right-color:#8080c0;border-left-color:#8080c0}.mw-parser-output .mw-version-version-alpha .mw-version-versionbox{border-style:dotted}</style>
+<table class="mw-version mw-version-ltr mw-version-version mw-version-version-unsupported mw-version-and-later"><tbody><tr>
+<td>MediaWiki version:</td>
+<td class="mw-version-versionbox" title="The latest stable version is 1.37"><div class="mw-version-versionnumber"><small>&#8805;</small> 1.11</div></td>
+</tr></tbody></table> 
+<p><b>GET request</b> to search for a title or text in a wiki.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#API_documentation"><span class="tocnumber">1</span> <span class="toctext">API documentation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#GET_request"><span class="tocnumber">1.1</span> <span class="toctext">GET request</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Response"><span class="tocnumber">1.2</span> <span class="toctext">Response</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Sample_code"><span class="tocnumber">1.3</span> <span class="toctext">Sample code</span></a></li>
+<li class="toclevel-2"><a href="#Python"><span class="tocnumber">1.4</span> <span class="toctext">Python</span></a></li>
+<li class="toclevel-2"><a href="#PHP"><span class="tocnumber">1.5</span> <span class="toctext">PHP</span></a></li>
+<li class="toclevel-2"><a href="#JavaScript"><span class="tocnumber">1.6</span> <span class="toctext">JavaScript</span></a></li>
+<li class="toclevel-2"><a href="#MediaWiki_JS"><span class="tocnumber">1.7</span> <span class="toctext">MediaWiki JS</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Possible_errors"><span class="tocnumber">2</span> <span class="toctext">Possible errors</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Parameter_history"><span class="tocnumber">3</span> <span class="toctext">Parameter history</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Additional_notes"><span class="tocnumber">4</span> <span class="toctext">Additional notes</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="API_documentation">API documentation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=1" title="Edit section: API documentation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table style="color: black; background-color: #f8f8f8; border-spacing: 20px; border: 1px solid darkgray;">
+<tbody><tr>
+<td>
+<hr /><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r4705729"/><table class="plainlinks plainlinks ombox ombox-notice" role="presentation"><tbody><tr><td class="mbox-image"><span typeof="mw:Image"><a href="/wiki/File:Oxygen480-categories-preferences-system.svg"><img alt="Oxygen480-categories-preferences-system.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oxygen480-categories-preferences-system.svg/20px-Oxygen480-categories-preferences-system.svg.png" decoding="async" width="20" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oxygen480-categories-preferences-system.svg/30px-Oxygen480-categories-preferences-system.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oxygen480-categories-preferences-system.svg/40px-Oxygen480-categories-preferences-system.svg.png 2x" data-file-width="128" data-file-height="128" /></a></span></td><td class="mbox-text">The following documentation is the output of <a href="/wiki/Special:ApiHelp/query%2Bsearch" title="Special:ApiHelp/query+search">Special:ApiHelp/query+search</a>, automatically generated by the pre-release version of MediaWiki that is running on this site (MediaWiki.org).</td></tr></tbody></table>
+<span style="word-wrap:break-word; overflow-wrap:break-word"><h2 class="apihelp-header apihelp-module-name" dir="ltr" lang="en" id="query+search">list=search (sr)</h2><div class="apihelp-linktrail">(<a href="/wiki/Special:ApiHelp/main" class="apihelp-linktrail" dir="ltr" lang="en">main</a> | <a href="/wiki/Special:ApiHelp/query" class="apihelp-linktrail" dir="ltr" lang="en">query</a> | <b dir="ltr" lang="en">search</b>)</div>
+<div class="apihelp-block apihelp-flags"><ul><li><span class="apihelp-flag-readrights">This module requires read rights.</span></li><li><span class="apihelp-flag-generator">This module can be used as a generator.</span></li><li><span class="apihelp-source">Source: <span dir="ltr" lang="en">MediaWiki</span></span></li><li><span class="apihelp-license">License: <a href="/wiki/Special:Version/License/MediaWiki" title="Special:Version/License/MediaWiki"><span dir="ltr" lang="en">GPL-2.0-or-later</span></a></span></li></ul></div>
+<p>Perform a full text search.
+</p>
+<div class="apihelp-block apihelp-help-urls"><ul><li><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/API:Search" dir="ltr">https://www.mediawiki.org/wiki/Special:MyLanguage/API:Search</a></li></ul></div>
+<div class="apihelp-block apihelp-parameters"><div class="apihelp-block-head">Parameters:</div><dl><dt><span dir="ltr" lang="en">srsearch</span></dt><dd class="description"><p>Search for page titles or content matching this value. You can use the search string to invoke special search features, depending on what the wiki's search backend implements.
+</p></dd><dd class="info">This parameter is required.</dd><dt><span dir="ltr" lang="en">srnamespace</span></dt><dd class="description"><p>Search only within these namespaces.
+</p></dd><dd class="info">Values (separate with <kbd>|</kbd> or <a href="/w/api.php?action=help&amp;modules=main#main/datatypes">alternative</a>): 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 90, 91, 92, 93, 100, 101, 102, 103, 104, 105, 106, 107, 486, 487, 828, 829, 1198, 1199, 2300, 2301, 2302, 2303, 2600, 5500, 5501</dd><dd class="info">To specify all values, use <kbd>*</kbd>.</dd><dd class="info">Default: 0</dd><dt><span dir="ltr" lang="en">srlimit</span></dt><dd class="description"><p>How many total pages to return.
+</p></dd><dd class="info">Type: integer or <kbd>max</kbd></dd><dd class="info">The value must be between 1 and 500.</dd><dd class="info">Default: 10</dd><dt><span dir="ltr" lang="en">sroffset</span></dt><dd class="description"><p>When more results are available, use this to continue.
+</p></dd><dd class="info">Type: integer</dd><dd class="info">Default: 0</dd><dt><span dir="ltr" lang="en">srqiprofile</span></dt><dd class="description"><p>Query independent profile to use (affects ranking algorithm).
+</p><dl><dt><span dir="ltr" lang="en">classic</span></dt>
+<dd>Ranking based on the number of incoming links, some templates, page language and recency (templates/language/recency may not be activated on this wiki).</dd>
+<dt><span dir="ltr" lang="en">classic_noboostlinks</span></dt>
+<dd>Ranking based on some templates, page language and recency when activated on this wiki.</dd>
+<dt><span dir="ltr" lang="en">empty</span></dt>
+<dd>Ranking based solely on query dependent features (for debug only).</dd>
+<dt><span dir="ltr" lang="en">wsum_inclinks</span></dt>
+<dd>Weighted sum based on incoming links</dd>
+<dt><span dir="ltr" lang="en">wsum_inclinks_pv</span></dt>
+<dd>Weighted sum based on incoming links and weekly pageviews</dd>
+<dt><span dir="ltr" lang="en">popular_inclinks_pv</span></dt>
+<dd>Ranking based primarily on page views</dd>
+<dt><span dir="ltr" lang="en">popular_inclinks</span></dt>
+<dd>Ranking based primarily on incoming link counts</dd>
+<dt><span dir="ltr" lang="en">engine_autoselect</span></dt>
+<dd>Let the search engine decide on the best profile to use.</dd></dl></dd><dd class="info">One of the following values: classic, classic_noboostlinks, empty, engine_autoselect, popular_inclinks, popular_inclinks_pv, wsum_inclinks, wsum_inclinks_pv</dd><dd class="info">Default: engine_autoselect</dd><dt><span dir="ltr" lang="en">srwhat</span></dt><dd class="description"><p>Which type of search to perform.
+</p></dd><dd class="info">One of the following values: nearmatch, text, title</dd><dt><span dir="ltr" lang="en">srinfo</span></dt><dd class="description"><p>Which metadata to return.
+</p></dd><dd class="info">Values (separate with <kbd>|</kbd> or <a href="/w/api.php?action=help&amp;modules=main#main/datatypes">alternative</a>): rewrittenquery, suggestion, totalhits</dd><dd class="info">Default: totalhits|suggestion|rewrittenquery</dd><dt><span dir="ltr" lang="en">srprop</span></dt><dd class="description"><p>Which properties to return:
+</p><dl><dt><span dir="ltr" lang="en">size</span></dt>
+<dd>Adds the size of the page in bytes.</dd>
+<dt><span dir="ltr" lang="en">wordcount</span></dt>
+<dd>Adds the word count of the page.</dd>
+<dt><span dir="ltr" lang="en">timestamp</span></dt>
+<dd>Adds the timestamp of when the page was last edited.</dd>
+<dt><span dir="ltr" lang="en">snippet</span></dt>
+<dd>Adds a parsed snippet of the page.</dd>
+<dt><span dir="ltr" lang="en">titlesnippet</span></dt>
+<dd>Adds a parsed snippet of the page title.</dd>
+<dt><span dir="ltr" lang="en">redirecttitle</span></dt>
+<dd>Adds the title of the matching redirect.</dd>
+<dt><span dir="ltr" lang="en">redirectsnippet</span></dt>
+<dd>Adds a parsed snippet of the redirect title.</dd>
+<dt><span dir="ltr" lang="en">sectiontitle</span></dt>
+<dd>Adds the title of the matching section.</dd>
+<dt><span dir="ltr" lang="en">sectionsnippet</span></dt>
+<dd>Adds a parsed snippet of the matching section title.</dd>
+<dt><span dir="ltr" lang="en">isfilematch</span></dt>
+<dd>Adds a boolean indicating if the search matched file content.</dd>
+<dt><span dir="ltr" lang="en">categorysnippet</span></dt>
+<dd>Adds a parsed snippet of the matching category.</dd>
+<dt><span dir="ltr" lang="en">score</span></dt>
+<dd><span class="apihelp-deprecated">Deprecated.</span> Ignored.</dd>
+<dt><span dir="ltr" lang="en">hasrelated</span></dt>
+<dd><span class="apihelp-deprecated">Deprecated.</span> Ignored.</dd>
+<dt><span dir="ltr" lang="en">extensiondata</span></dt>
+<dd>Adds extra data generated by extensions.</dd></dl></dd><dd class="info">Values (separate with <kbd>|</kbd> or <a href="/w/api.php?action=help&amp;modules=main#main/datatypes">alternative</a>): categorysnippet, extensiondata, isfilematch, redirectsnippet, redirecttitle, sectionsnippet, sectiontitle, size, snippet, timestamp, titlesnippet, wordcount, hasrelated, score</dd><dd class="info">Default: size|wordcount|timestamp|snippet</dd><dt><span dir="ltr" lang="en">srinterwiki</span></dt><dd class="description"><p>Include interwiki results in the search, if available.
+</p></dd><dd class="info">Type: boolean (<a href="/w/api.php?action=help&amp;modules=main#main/datatype/boolean">details</a>)</dd><dt><span dir="ltr" lang="en">srenablerewrites</span></dt><dd class="description"><p>Enable internal query rewriting. Some search backends can rewrite the query into another which is thought to provide better results, for instance by correcting spelling errors.
+</p></dd><dd class="info">Type: boolean (<a href="/w/api.php?action=help&amp;modules=main#main/datatype/boolean">details</a>)</dd><dt><span dir="ltr" lang="en">srsort</span></dt><dd class="description"><p>Set the sort order of returned results.
+</p></dd><dd class="info">One of the following values: create_timestamp_asc, create_timestamp_desc, incoming_links_asc, incoming_links_desc, just_match, last_edit_asc, last_edit_desc, none, random, relevance, user_random</dd><dd class="info">Default: relevance</dd></dl></div>
+<div class="apihelp-block apihelp-examples"><div class="apihelp-block-head">Examples:</div><dl><dt>Search for <kbd>meaning</kbd>.</dt><dd><a href="/w/api.php?action=query&amp;list=search&amp;srsearch=meaning" dir="ltr">api.php?action=query&amp;list=search&amp;srsearch=meaning</a> <a href="/wiki/Special:ApiSandbox#action=query&amp;list=search&amp;srsearch=meaning"><small>[open in sandbox]</small></a></dd><dt>Search texts for <kbd>meaning</kbd>.</dt><dd><a href="/w/api.php?action=query&amp;list=search&amp;srwhat=text&amp;srsearch=meaning" dir="ltr">api.php?action=query&amp;list=search&amp;srwhat=text&amp;srsearch=meaning</a> <a href="/wiki/Special:ApiSandbox#action=query&amp;list=search&amp;srwhat=text&amp;srsearch=meaning"><small>[open in sandbox]</small></a></dd><dt>Get page info about the pages returned for a search for <kbd>meaning</kbd>.</dt><dd><a href="/w/api.php?action=query&amp;generator=search&amp;gsrsearch=meaning&amp;prop=info" dir="ltr">api.php?action=query&amp;generator=search&amp;gsrsearch=meaning&amp;prop=info</a> <a href="/wiki/Special:ApiSandbox#action=query&amp;generator=search&amp;gsrsearch=meaning&amp;prop=info"><small>[open in sandbox]</small></a></dd></dl></div></span>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="GET_request">GET request</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=2" title="Edit section: GET request">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="plainlinks" style="margin-bottom: 0.3em"><b><a class="external text" href="https://en.wikipedia.org/w/api.php?action=query&amp;list=search&amp;srsearch=Nelson%20Mandela&amp;utf8=&amp;format=json">api.php<span style="margin:0 0.5em">?</span><wbr />action=query<span style="margin:0 0.5em">&amp;</span><wbr />list=search<span style="margin:0 0.5em">&amp;</span><wbr />srsearch=Nelson%20Mandela<span style="margin:0 0.5em">&amp;</span><wbr />utf8=<span style="margin:0 0.5em">&amp;</span><wbr />format=json</a></b>&#160;<a class="external text" href="https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&amp;list=search&amp;srsearch=Nelson%20Mandela&amp;utf8=&amp;format=json">&#x5b;try in ApiSandbox&#x5d;</a></div>
+<p><br />
+</p>
+<style data-mw-deduplicate="TemplateStyles:r4199118">.mw-parser-output .note{background-position:left 7px top 50%;padding:0.5em 0.5em 0.5em 40px;margin:0.5em 0;overflow:hidden;background-color:#f8f9fa;background-repeat:no-repeat;border:1px solid #ddd}.mw-parser-output .note-inline{display:inline-block;vertical-align:middle}.mw-parser-output .note-info{background-color:#f6efe5;background-image:url("https://upload.wikimedia.org/wikipedia/commons/d/d5/OOjs_UI_icon_reference_20_ac6600.svg");background-size:25px;border-color:#ac6600;padding-left:40px;min-height:28px}.mw-parser-output .note-reminder{background-color:#fff9ea;background-image:url("https://upload.wikimedia.org/wikipedia/commons/a/a8/OOjs_UI_icon_lightbulb-yellow.svg");background-size:25px;border-color:#fc3;min-height:28px}.mw-parser-output .note-warn{background-color:#fff9ea;background-image:url("https://upload.wikimedia.org/wikipedia/commons/3/3b/OOjs_UI_icon_alert-warning.svg");background-size:25px;border-color:#fc3;min-height:28px}.mw-parser-output .note-error{background-color:#fee7e6;background-image:url("https://upload.wikimedia.org/wikipedia/commons/b/bf/OOjs_UI_icon_notice-destructive.svg");background-size:25px;border-color:#c33;min-height:28px}</style><div role="note" class="note note-info">Default search results are without UTF8 encoding. Replace <code>utf8</code> in the get request above to see the difference.</div>
+<h3><span class="mw-headline" id="Response">Response</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=3" title="Edit section: Response">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-python3 mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;batchcomplete&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;continue&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;sroffset&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;continue&quot;</span><span class="p">:</span> <span class="s2">&quot;-||&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;searchinfo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;totalhits&quot;</span><span class="p">:</span> <span class="mi">5060</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;search&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Nelson Mandela&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pageid&quot;</span><span class="p">:</span> <span class="mi">21492751</span><span class="p">,</span>
+                <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">196026</span><span class="p">,</span>
+                <span class="s2">&quot;wordcount&quot;</span><span class="p">:</span> <span class="mi">23664</span><span class="p">,</span>
+                <span class="s2">&quot;snippet&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;span class=</span><span class="se">\&quot;</span><span class="s2">searchmatch</span><span class="se">\&quot;</span><span class="s2">&gt;Nelson&lt;/span&gt; Rolihlahla &lt;span class=</span><span class="se">\&quot;</span><span class="s2">searchmatch</span><span class="se">\&quot;</span><span class="s2">&gt;Mandela&lt;/span&gt; (/mænˈdɛlə/, Xhosa: [xoliɬaˈɬa &lt;span class=</span><span class="se">\&quot;</span><span class="s2">searchmatch</span><span class="se">\&quot;</span><span class="s2">&gt;manˈdɛla&lt;/span&gt;]; 18 July 1918 – 5 December 2013) was a South African anti-apartheid revolutionary,&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-07-23T07:59:43Z&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;ns&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Death of Nelson Mandela&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;pageid&quot;</span><span class="p">:</span> <span class="mi">41284488</span><span class="p">,</span>
+                <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">133513</span><span class="p">,</span>
+                <span class="s2">&quot;wordcount&quot;</span><span class="p">:</span> <span class="mi">13512</span><span class="p">,</span>
+                <span class="s2">&quot;snippet&quot;</span><span class="p">:</span> <span class="s2">&quot;On December 5, 2013, &lt;span class=</span><span class="se">\&quot;</span><span class="s2">searchmatch</span><span class="se">\&quot;</span><span class="s2">&gt;Nelson&lt;/span&gt; &lt;span class=</span><span class="se">\&quot;</span><span class="s2">searchmatch</span><span class="se">\&quot;</span><span class="s2">&gt;Mandela&lt;/span&gt;, the first President of South Africa to be elected in a fully representative democratic election, as well as the country&#39;s&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-07-19T17:30:59Z&quot;</span>
+            <span class="p">}</span>
+            <span class="o">...</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span class="mw-headline" id="Sample_code">Sample code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=4" title="Edit section: Sample code">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-gadget-tabbedwindow" style="width:70%">
+<h3><span class="mw-headline" id="Python">Python</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search/Sample_code_1&amp;action=edit&amp;section=T-1" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    search.py</span>
+
+<span class="sd">    MediaWiki API Demos</span>
+<span class="sd">    Demo of `Search` module: Search for a text or title</span>
+
+<span class="sd">    MIT License</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/w/api.php&quot;</span>
+
+<span class="n">SEARCHPAGE</span> <span class="o">=</span> <span class="s2">&quot;Nelson Mandela&quot;</span>
+
+<span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;srsearch&quot;</span><span class="p">:</span> <span class="n">SEARCHPAGE</span>
+<span class="p">}</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">)</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">DATA</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">][</span><span class="s1">&#39;search&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">SEARCHPAGE</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your search page &#39;&quot;</span> <span class="o">+</span> <span class="n">SEARCHPAGE</span> <span class="o">+</span> <span class="s2">&quot;&#39; exists on English Wikipedia&quot;</span><span class="p">)</span>
+</pre></div>
+<h3><span class="mw-headline" id="PHP">PHP</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search/Sample_code_1&amp;action=edit&amp;section=T-2" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-php mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="cm">/*</span>
+<span class="cm">    search.php</span>
+
+<span class="cm">    MediaWiki API Demos</span>
+<span class="cm">    Demo of `Search` module: Search for a text or title</span>
+
+<span class="cm">    MIT License</span>
+<span class="cm">*/</span>
+
+<span class="nv">$searchPage</span> <span class="o">=</span> <span class="s2">&quot;Nelson Mandela&quot;</span><span class="p">;</span>
+
+<span class="nv">$endPoint</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/w/api.php&quot;</span><span class="p">;</span>
+<span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;action&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;list&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;srsearch&quot;</span> <span class="o">=&gt;</span> <span class="nv">$searchPage</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;json&quot;</span>
+<span class="p">];</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$endPoint</span> <span class="o">.</span> <span class="s2">&quot;?&quot;</span> <span class="o">.</span> <span class="nb">http_build_query</span><span class="p">(</span> <span class="nv">$params</span> <span class="p">);</span>
+
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span> <span class="nv">$url</span> <span class="p">);</span>
+<span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+<span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">);</span>
+<span class="nb">curl_close</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">);</span>
+
+<span class="nv">$result</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span> <span class="nv">$output</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$result</span><span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">][</span><span class="s1">&#39;search&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$searchPage</span><span class="p">){</span>
+    <span class="k">echo</span><span class="p">(</span><span class="s2">&quot;Your search page &#39;&quot;</span> <span class="o">.</span> <span class="nv">$searchPage</span> <span class="o">.</span> <span class="s2">&quot;&#39; exists on English Wikipedia&quot;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span class="mw-headline" id="JavaScript">JavaScript</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search/Sample_code_1&amp;action=edit&amp;section=T-3" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-javascript mw-content-ltr" dir="ltr"><pre><span></span><span class="cm">/*</span>
+<span class="cm">    search.js</span>
+
+<span class="cm">    MediaWiki API Demos</span>
+<span class="cm">    Demo of `Search` module: Search for a text or title</span>
+
+<span class="cm">    MIT License</span>
+<span class="cm">*/</span>
+
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;https://en.wikipedia.org/w/api.php&quot;</span><span class="p">;</span> 
+
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">action</span><span class="o">:</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+    <span class="nx">list</span><span class="o">:</span> <span class="s2">&quot;search&quot;</span><span class="p">,</span>
+    <span class="nx">srsearch</span><span class="o">:</span> <span class="s2">&quot;Nelson Mandela&quot;</span><span class="p">,</span>
+    <span class="nx">format</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span>
+<span class="p">};</span>
+
+<span class="nx">url</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="s2">&quot;?origin=*&quot;</span><span class="p">;</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span><span class="nx">url</span> <span class="o">+=</span> <span class="s2">&quot;&amp;&quot;</span> <span class="o">+</span> <span class="nx">key</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">key</span><span class="p">];});</span>
+
+<span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span><span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">search</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">title</span> <span class="o">===</span> <span class="s2">&quot;Nelson Mandela&quot;</span><span class="p">){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Your search page &#39;Nelson Mandela&#39; exists on English Wikipedia&quot;</span> <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);});</span>
+</pre></div>
+<h3><span class="mw-headline" id="MediaWiki_JS">MediaWiki JS</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search/Sample_code_1&amp;action=edit&amp;section=T-4" title="Edit section: ">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="mw-highlight mw-highlight-lang-javascript mw-content-ltr" dir="ltr"><pre><span></span><span class="cm">/*</span>
+<span class="cm">	search.js</span>
+
+<span class="cm">	MediaWiki API Demos</span>
+<span class="cm">	Demo of `Search` module: Search for a text or title</span>
+
+<span class="cm">	MIT License</span>
+<span class="cm">*/</span>
+
+<span class="kd">var</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span>
+		<span class="nx">list</span><span class="o">:</span> <span class="s1">&#39;search&#39;</span><span class="p">,</span>
+		<span class="nx">srsearch</span><span class="o">:</span> <span class="s1">&#39;Nelson Mandela&#39;</span><span class="p">,</span>
+		<span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;json&#39;</span>
+	<span class="p">},</span>
+	<span class="nx">api</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">mw</span><span class="p">.</span><span class="nx">Api</span><span class="p">();</span>
+
+<span class="nx">api</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span> <span class="nx">params</span> <span class="p">).</span><span class="nx">done</span><span class="p">(</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">data</span> <span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">search</span><span class="p">[</span> <span class="mf">0</span> <span class="p">].</span><span class="nx">title</span> <span class="o">===</span> <span class="s1">&#39;Nelson Mandela&#39;</span> <span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;Your search page &#39;Nelson Mandela&#39; exists on English Wikipedia&quot;</span> <span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="Possible_errors">Possible errors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=5" title="Edit section: Possible errors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable">
+<caption>
+</caption>
+<tbody><tr>
+<th>Code
+</th>
+<th>Info
+</th></tr>
+<tr>
+<td>nosrsearch
+</td>
+<td>The <var>srsearch</var> parameter must be set. <link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r4199118"/><div role="note" class="note note-info">This was param-search before 1.17</div>
+</td></tr>
+<tr>
+<td>search-text-disabled
+</td>
+<td><var>text</var> search is disabled.
+</td></tr>
+<tr>
+<td>search-title-disabled
+</td>
+<td><var>title</var> search is disabled.
+</td></tr>
+<tr>
+<td>search-error
+</td>
+<td>search error has occurred
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Parameter_history">Parameter history</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=6" title="Edit section: Parameter history">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>v1.24: Deprecated <code>score</code>,<code>hasrelated</code></li>
+<li>v1.23:
+<ul><li>Removed <code>srredirects</code>. Redirects are always included.</li>
+<li>Introduced <code>srinterwiki</code></li></ul></li>
+<li>v1.22: Introduced <code>srbackend</code></li>
+<li>v1.17: Introduced <code>nearmatch</code>, <code>score</code>, <code>titlesnippet</code>, <code>redirecttitle</code>, <code>redirectsnippet</code>, <code>sectiontitle</code>, <code>sectionsnippet</code>, <code>hasrelated</code></li>
+<li>v1.16: Introduced <code>srinfo</code>, <code>srprop</code></li></ul>
+<h2><span class="mw-headline" id="Additional_notes">Additional notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=7" title="Edit section: Additional notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Depending on which search backend is in use, how <code>srsearch</code> is interpreted may vary. On Wikimedia wikis which use CirrusSearch, see <a href="/wiki/Special:MyLanguage/Help:CirrusSearch" title="Special:MyLanguage/Help:CirrusSearch">Help:CirrusSearch</a><span style="display:none"><a href="/wiki/Help:CirrusSearch" title="Help:CirrusSearch"> </a></span> for information about the search syntax.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=API:Search&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Special:MyLanguage/API:Opensearch" title="Special:MyLanguage/API:Opensearch">API:Opensearch</a><span style="display:none"><a href="/wiki/API:Opensearch" title="API:Opensearch"> </a></span></li>
+<li><a href="/wiki/Special:MyLanguage/API:All_search_modules" title="Special:MyLanguage/API:All search modules">API:All search modules</a><span style="display:none"><a href="/wiki/API:All_search_modules" title="API:All search modules"> </a></span></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1429
+Cached time: 20220104001809
+Cache expiry: 3078
+Reduced expiry: true
+Complications: []
+CPU time usage: 0.722 seconds
+Real time usage: 0.867 seconds
+Preprocessor visited node count: 5182/1000000
+Post‐expand include size: 51191/2097152 bytes
+Template argument size: 22666/2097152 bytes
+Highest expansion depth: 18/40
+Expensive parser function count: 44/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 35246/5000000 bytes
+Lua time usage: 0.147/10.000 seconds
+Lua memory usage: 1790529/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  584.277      1 -total
+ 61.21%  357.659      1 Template:API
+ 48.40%  282.787      1 Template:Sidebar
+ 46.42%  271.202     52 Template:Ll
+ 18.42%  107.643     73 Template:Pagelang
+ 17.22%  100.622    105 Template:Translatable
+ 12.91%   75.447      1 Template:Api_help
+ 11.51%   67.223      1 Template:Mbox
+ 11.46%   66.955      1 Special:ApiHelp/query+search
+  8.24%   48.155     15 Template:TNTN
+-->
+
+<!-- Saved in parser cache with key mediawikiwiki:pcache:idhash:54880-0!canonical and timestamp 20220104001808 and revision id 4698360. Serialized with JSON.
+ -->
+</div><noscript><img src="//www.mediawiki.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://www.mediawiki.org/w/index.php?title=API:Search&amp;oldid=4698360">https://www.mediawiki.org/w/index.php?title=API:Search&amp;oldid=4698360</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:MediaWiki_action_API" title="Category:MediaWiki action API">MediaWiki action API</a></li><li><a href="/wiki/Category:MediaWiki_API_query_lists" title="Category:MediaWiki API query lists">MediaWiki API query lists</a></li></ul></div></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<h3 id="p-personal-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-uls" class="mw-list-item active"><a class="uls-trigger" href="#"><span>English</span></a></li><li id="pt-anonuserpage" class="mw-list-item"><span>Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=API%3ASearch" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=API%3ASearch" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<h3 id="p-namespaces-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-api" class="selected mw-list-item"><a href="/wiki/API:Search"><span>API</span></a></li><li id="ca-talk" class="mw-list-item"><a href="/wiki/API_talk:Search" rel="discussion" title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<h3 id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Variants</span>
+			<span class="vector-menu-checkbox-expanded">expanded</span>
+			<span class="vector-menu-checkbox-collapsed">collapsed</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<h3 id="p-views-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Views</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/wiki/API:Search"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="/w/index.php?title=API:Search&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="/w/index.php?title=API:Search&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<h3 id="p-cactions-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">More</span>
+			<span class="vector-menu-checkbox-expanded">expanded</span>
+			<span class="vector-menu-checkbox-collapsed">collapsed</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			<div id="p-search" role="search" class=" vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search MediaWiki" aria-label="Search MediaWiki" autocapitalize="sentences" title="Search MediaWiki [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/wiki/MediaWiki"
+			title="Visit the main page"></a>
+	</div>
+	<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<h3 id="p-navigation-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Navigation</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="/wiki/MediaWiki" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-mw-download" class="mw-list-item"><a href="/wiki/Download"><span>Get MediaWiki</span></a></li><li id="n-mw-extensions" class="mw-list-item"><a href="/wiki/Special:MyLanguage/Category:Extensions"><span>Get extensions</span></a></li><li id="n-blog-text" class="mw-list-item"><a href="//techblog.wikimedia.org/"><span>Tech blog</span></a></li><li id="n-mw-contribute" class="mw-list-item"><a href="/wiki/Special:MyLanguage/How_to_contribute"><span>Contribute</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	<nav id="p-support" class="mw-portlet mw-portlet-support vector-menu vector-menu-portal portal" aria-labelledby="p-support-label" role="navigation" 
+	 >
+	<h3 id="p-support-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Support</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="/wiki/Special:MyLanguage/Help:Contents" title="The place to find out"><span>User help</span></a></li><li id="n-mw-faq" class="mw-list-item"><a href="/wiki/Special:MyLanguage/Manual:FAQ"><span>FAQ</span></a></li><li id="n-mw-manual" class="mw-list-item"><a href="/wiki/Special:MyLanguage/Manual:Contents"><span>Technical manual</span></a></li><li id="n-mw-supportdesk" class="mw-list-item"><a href="/wiki/Project:Support_desk"><span>Support desk</span></a></li><li id="n-mw-communication" class="mw-list-item"><a href="/wiki/Special:MyLanguage/Communication"><span>Communication</span></a></li></ul>
+		
+	</div>
+</nav>
+<nav id="p-development" class="mw-portlet mw-portlet-development vector-menu vector-menu-portal portal" aria-labelledby="p-development-label" role="navigation" 
+	 >
+	<h3 id="p-development-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Development</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mw-bugtracker" class="mw-list-item"><a href="/wiki/Special:MyLanguage/Phabricator"><span>Bug tracker</span></a></li><li id="n-phpdoc" class="mw-list-item"><a href="//doc.wikimedia.org/mediawiki-core/master/php/"><span>Code docs</span></a></li><li id="n-mw-repo-browse" class="mw-list-item"><a href="https://phabricator.wikimedia.org/diffusion/MW/"><span>Code repository</span></a></li><li id="n-svn-statistics" class="mw-list-item"><a href="/wiki/Development_statistics"><span>Statistics</span></a></li></ul>
+		
+	</div>
+</nav>
+<nav id="p-MediaWiki.org" class="mw-portlet mw-portlet-MediaWiki_org vector-menu vector-menu-portal portal" aria-labelledby="p-MediaWiki.org-label" role="navigation" 
+	 >
+	<h3 id="p-MediaWiki.org-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">MediaWiki.org</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-portal" class="mw-list-item"><a href="/wiki/Project:Help" title="About the project, what you can do, where to find things"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-mw-translate" class="mw-list-item"><a href="/wiki/Special:LanguageStats"><span>Translate content</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li><li id="n-mw-discussion" class="mw-list-item"><a href="/wiki/Project:Village_Pump"><span>Village pump</span></a></li><li id="n-Sandboxlink-portlet-label" class="mw-list-item"><a href="/wiki/Project:Sandbox"><span>Sandbox</span></a></li></ul>
+		
+	</div>
+</nav>
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<h3 id="p-tb-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Tools</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/API:Search" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/API:Search" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="//commons.wikimedia.org/wiki/Special:UploadWizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/w/index.php?title=API:Search&amp;oldid=4698360" title="Permanent link to this revision of the page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/w/index.php?title=API:Search&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=API%3ASearch&amp;id=4698360&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li></ul>
+		
+	</div>
+</nav>
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<h3 id="p-coll-print_export-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">Print/export</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-create_a_book" class="mw-list-item"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=API%3ASearch"><span>Create a book</span></a></li><li id="coll-download-as-rl" class="mw-list-item"><a href="/w/index.php?title=Special:DownloadAsPdf&amp;page=API%3ASearch&amp;action=show-download-screen"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="/w/index.php?title=API:Search&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<h3 id="p-lang-label" aria-label="" class="vector-menu-heading">
+		<span class="vector-menu-heading-label">In other languages</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-add wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:NewItem?site=mediawikiwiki&amp;page=API%3ASearch" title="Add interlanguage links" class="wbc-editpage">Add links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 9 July 2021, at 22:01.</li>
+	<li id="footer-info-copyright">Text is available under the <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike License</a>;
+additional terms may apply.
+See <a href="https://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> for details.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/Project:About" title="Project:About">About MediaWiki.org</a></li>
+	<li id="footer-places-disclaimer"><a href="/wiki/Project:General_disclaimer" title="Project:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-wm-codeofconduct"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct">Code of Conduct</a></li>
+	<li id="footer-places-mobileview"><a href="//m.mediawiki.org/w/index.php?title=API:Search&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/www.mediawiki.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.722","walltime":"0.867","ppvisitednodes":{"value":5182,"limit":1000000},"postexpandincludesize":{"value":51191,"limit":2097152},"templateargumentsize":{"value":22666,"limit":2097152},"expansiondepth":{"value":18,"limit":40},"expensivefunctioncount":{"value":44,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":35246,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  584.277      1 -total"," 61.21%  357.659      1 Template:API"," 48.40%  282.787      1 Template:Sidebar"," 46.42%  271.202     52 Template:Ll"," 18.42%  107.643     73 Template:Pagelang"," 17.22%  100.622    105 Template:Translatable"," 12.91%   75.447      1 Template:Api_help"," 11.51%   67.223      1 Template:Mbox"," 11.46%   66.955      1 Special:ApiHelp/query+search","  8.24%   48.155     15 Template:TNTN"]},"scribunto":{"limitreport-timeusage":{"value":"0.147","limit":"10.000"},"limitreport-memusage":{"value":1790529,"limit":52428800}},"cachereport":{"origin":"mw1429","timestamp":"20220104001809","ttl":3078,"transientcontent":true}}});mw.config.set({"wgBackendResponseTime":166,"wgHostname":"mw1366"});});</script>
+</body>
+</html>

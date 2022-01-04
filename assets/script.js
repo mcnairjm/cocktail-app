@@ -29,7 +29,8 @@ var clearHistoryEl = document.getElementById("clear-button")
 var historyListEl = document.getElementById("history-list");
 var buttonFooterEl = document.getElementById("button-footer");
 var buttonFooterParentEl = document.getElementById("modal-footer-id")
-var wikiLinkEl = document.getElementsById('wiki-link')
+var wikiLinkEl = document.getElementById('wiki-link')
+
 
 $(document).ready(function(){
   $('.modal').modal();
@@ -186,19 +187,21 @@ function fillModal(event){
       
     }
     ) 
-}
+
+    
+  }
 
 function fetchEventHandler(event) {
     event.preventDefault();
-     
+    
       var cocktailEl = searchInputEl.value.trim();
       if(cocktailEl){
           fetchCocktails(cocktailEl);
           
-      } else {
+        } else {
          return
       }
-  }
+    }
  
 function fetchRandomCocktail() {
 
@@ -220,15 +223,15 @@ function fetchRandomCocktail() {
   var apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
   //var audio = document.getElementById('audio')
   var modalThumb = document.getElementById("modal-thumb");
-
+  
   //audio.play();
   ingredientModal.textContent = "";
   
   randomBtn.setAttribute("data-target", "modal1");
- 
+  
   
   fetch(apiUrl)
-    .then(function (res) {
+  .then(function (res) {
       if (!res.ok) {
         throw Error("Error");
       }
@@ -249,7 +252,7 @@ function fetchRandomCocktail() {
         if (
           data.drinks[0]["strMeasure" + i] !== null &&
           data.drinks[0]["strIngredient" + i] !== null
-        ) {
+          ) {
           var listSection = document.createElement("li");
           listSection.textContent = `${i}: ${
             data.drinks[0]["strMeasure" + i]
@@ -272,8 +275,46 @@ document.addEventListener("click", function (event) {
 });
 
 
-function fetchWiki() {
-  
+/*function fetchWiki(event) {
+//var cocktailName = document.getElementById('modal-title')
+event.preventDefault();
+var wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + ''
+fetch(wikiUrl) 
+.then(function (res) {
+  if (!res.ok) {
+    throw Error("Error");
+  }
+  return res.json();
+})
+.then(function (data) {
+  console.log(data)
+}) 
+.catch(function (err) {
+  console.error(err);
+});
+
+
+
+
+}*/
+function fetchWiki(event) {
+  var cocktailName = document.getElementById('modal-title')
+  event.preventDefault();
+  var wikiUrl = 'https://en.wikipedia.org/api/rest_v1/page/summary/beer' 
+  console.log(wikiUrl)
+  fetch(wikiUrl) 
+  .then(function (res) {
+    if (!res.ok) {
+      throw Error("Error");
+    }
+    return res.json();
+  })
+  .then(function (data) {
+    console.log(data)
+  }) 
+  .catch(function (err) {
+    console.error(err);
+  });
 }
 
 cocktailContainerEl.addEventListener("click", fillModal);
@@ -283,5 +324,4 @@ searchButton.addEventListener("click",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
 clearHistoryEl.addEventListener("click", clearHistory);
 historyEl.addEventListener("click", fillModal)
-wikiLinkEl.addEventListener('click', fetchWiki)
-
+wikiLinkEl.addEventListener('click', fetchWiki);
