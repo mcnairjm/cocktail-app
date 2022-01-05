@@ -30,14 +30,14 @@ var historyListEl = document.getElementById("history-list");
 var buttonFooterEl = document.getElementById("button-footer");
 var buttonFooterParentEl = document.getElementById("modal-footer-id")
 var formEl = document.getElementById("form-listener-id")
-// var wikiLinkEl = document.getElementsById('wiki-link')
 var searchFormEl = document.getElementById("search-form")
 
+// Initializing modal
 $(document).ready(function(){
   $('.modal').modal();
 });
 
-
+// this clears out the favorite history element upon click event
 function clearHistory(event){
   event.preventDefault();
   console.log("hello");
@@ -45,7 +45,7 @@ function clearHistory(event){
   location.reload();
 }
 
-
+// this fills the favorite section by pulling from local storage
 function fillFavorites() {
   var historyEl = document.getElementById("history-list-container")
   var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
@@ -63,15 +63,15 @@ function fillFavorites() {
     historyButton.textContent = storedName;
     listedCocktail.appendChild(historyButton);
     historyEl.appendChild(listedCocktail)
-    
-    console.log(historyEl)
     historyIndex++  
   }
  
 }
+// this fills favorite history upon window load
 window.onload = function(){
   fillFavorites();
 }
+// this saves the specified cocktail to local storage
 function saveCocktail(event){
   
   var cocktailRecipes =JSON.parse(localStorage.getItem("cocktailName")) || []
@@ -87,9 +87,8 @@ function saveCocktail(event){
   localStorage.setItem("cocktailName", JSON.stringify(cocktailRecipes));
   fillFavorites()
 }
-
+// this function searches data for searched coctail and displays those result on screen
 function fetchCocktails(inputEl) {
-  // this clears all cocktail divs for the next search
   cocktailZeroEl.textContent = "";
   cocktailOneEl.textContent = "";
   cocktailTwoEl.textContent = "";
@@ -110,8 +109,6 @@ function fetchCocktails(inputEl) {
   var apiUrl =
     `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=` + inputEl;
 
-    
-
   fetch(apiUrl)
     .then(function (res) {
       return res.json();
@@ -122,20 +119,11 @@ function fetchCocktails(inputEl) {
        return
      } else {
         for (let i = 0; i < data.drinks.length; i++) {
-          var cocktailOneEl = document.getElementById(
-            "cocktail-" + cocktailIndex + "-id"
-          );
+          var cocktailOneEl = document.getElementById("cocktail-" + cocktailIndex + "-id");
           var cocktailButtonEl = document.createElement("button");
-          
-
           cocktailButtonEl.textContent = data.drinks[i].strDrink;
-          // cocktailButtonEl.setAttribute("href", "#modal1");
           cocktailButtonEl.setAttribute("data-target", "modal1");
-          cocktailButtonEl.setAttribute(
-            "class",
-            "btn grey darken-3 z-depth-5 btn-large modal-trigger cocktail-button"
-          );
-
+          cocktailButtonEl.setAttribute("class","btn grey darken-3 z-depth-5 btn-large modal-trigger cocktail-button");
           cocktailOneEl.appendChild(cocktailButtonEl);
           cocktailIndex++;
           cocktailButtonEl.addEventListener('click', fillModal)
@@ -147,7 +135,7 @@ function fetchCocktails(inputEl) {
     });
   searchInputEl.value = "";
 }
-
+// this pulls data information and passes them to a modal
 function fillModal(event){
   
   var cocktailButton= event.target.textContent
@@ -168,11 +156,8 @@ function fillModal(event){
       modalThumb.setAttribute("alt", "thumbnail of selected cocktail");
       var modalIngredients = document.getElementById("ingredient-modal");
       var modalInstuctions = document.getElementById("instruction-modal");
-
-      // clear content
       modalIngredients.innerHTML = "";
       $('#modal1').show();
-
       // this for loop guards against ingrediensts that are undefined from being listed
       for (let i = 1; i < 16; i++) {
         if (
@@ -186,13 +171,10 @@ function fillModal(event){
       }
       modalTitleEl.textContent = cocktailButton;
       modalInstuctions.textContent = pulledInstruction
-      
     }
-    ) 
-
-    
-  }
-
+    )  
+}
+// this function ensures that the user does not submit a blank input
 function fetchEventHandler(event) {
     event.preventDefault();
     
@@ -204,7 +186,7 @@ function fetchEventHandler(event) {
          return
       }
     }
- 
+// this function displays a modal with a random cocktail within upon request  
 function fetchRandomCocktail() {
 
   cocktailZeroEl.textContent = "";
@@ -223,14 +205,9 @@ function fetchRandomCocktail() {
   cocktailThirteenEl.textContent = "";
   cocktailFourteenEl.textContent = "";
   var apiUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-  //var audio = document.getElementById('audio')
   var modalThumb = document.getElementById("modal-thumb");
-  
-  //audio.play();
   ingredientModal.textContent = "";
-  
   randomBtn.setAttribute("data-target", "modal1");
-  
   
   fetch(apiUrl)
   .then(function (res) {
@@ -275,7 +252,7 @@ document.addEventListener("click", function (event) {
   }
   return;
 });
-
+// this function allows for the user to sumbit a search to wikipedia in the header element
 function fetchWiki(event) {
   event.preventDefault();
   var cocktailInputEL = document.getElementById('wiki-search')
@@ -302,7 +279,7 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
 });
 
-//cocktailContainerEl.addEventListener("click", fillModal);
+
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchFormEl.addEventListener("click",fetchEventHandler);
 buttonFooterEl.addEventListener("click", saveCocktail);
