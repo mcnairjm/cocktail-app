@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Prost Cocktail Lookup</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
   <link rel="stylesheet" href="./assets/style.css" />
@@ -15,23 +15,30 @@
   <header id="header-id">
     <nav class="light-blue darken-4">
       <div class="navbar-fixed">
-        <div class="nav-wrapper">          
-          <a class="brand-logo center">Barback App</a>
-          <ul class="right">
-            <li>Wiki-search</li>
-            <li>
-              <form id="form-listener-id">
-                <div class="input-field">
-                  <input id="wiki-search" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>                
-              </form>
-            </li>
-          </ul>        
+        <div class="nav-wrapper">
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+          <a class="brand-logo center">Prost</a>
+          <form id="form-listener-id">
+            <div class="input-field right hide-on-med-and-down">
+              <input id="wiki-search" placeholder="Wiki-Search" type="search" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
         </div>
       </div>
     </nav>
+    <ul class="sidenav">
+      <li>
+        <form id="form-listener-id">
+          <div class="input-field right">
+            <input id="wiki-search" placeholder="Wiki-Search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </li>
+    </ul>
   </header>
   <!-- hero -->
   <div class="row">
@@ -62,17 +69,17 @@
     <section id="cocktail-search-container">
       <div class="section section-search center col push-s2 s8">
         <form id="search-form">
-            <input id="cocktail-search-id" placeholder="Pick Your Poison" type="text" class="white grey-text" />
-            <button class="btn btn-large waves-effect light-blue darken-2 center z-depth-5" id="search-button" type="submit">
-          <i class="material-icons right">send</i>Search</button>
+          <input id="cocktail-search-id" placeholder="Pick Your Poison" type="text" class="white grey-text" />
+          <button class="btn btn-large waves-effect light-blue darken-2 center z-depth-5" id="search-button"
+            type="submit">
+            <i class="material-icons right">send</i>Search</button>
           <button href="#modal1" class="btn btn-large waves-effect red accent-3 z-depth-5 center modal-trigger"
-          id="random-btn" type="submit">
-          <i class="material-icons left">whatshot</i>Random</button>
+            id="random-btn" type="submit">
+            <i class="material-icons left">whatshot</i>Random</button>
+          <button id="clear-button" class="btn btn-large waves-effect deep-orange z-depth-5 ">Clear Favorite
+            Cocktails</button>
+          <ul class="history-list" id="history-list-container"></ul>
         </form>
-        <div>
-            <button id="clear-button" class="btn btn-large waves-effect deep-orange z-depth-5 ">Clear Favorite Cocktails</button>
-            <ul class="history-list" id="history-list-container"></ul>
-        </div>
       </div>
       <section id="cocktail-container">
         <div class="row">
@@ -94,7 +101,7 @@
             <div data-dive="1" class="col s12 m4 l2" id="cocktail-14-id"></div>
           </div>
         </div>
-    </section>
+      </section>
   </div>
   </section>
   </div>
