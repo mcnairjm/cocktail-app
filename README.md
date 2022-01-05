@@ -5,7 +5,5 @@
 
 ![SCREENSHOT](https://github.com/mcnairjm/cocktail-app/blob/main/assets/images/classic-cocktails.jpg?raw=true)
 
-## Website
- https://mcnairjm.github.io/cocktail-app/
- 
+
 ## Contributions by: [Kamari Harding](https://github.com/kozykoz1), [John McNair](https://github.com/mcnairjm), [Jonathan Werz](https://github.com/jdwerz83), and [Luke Wofford](https://github.com/woffordlm)
