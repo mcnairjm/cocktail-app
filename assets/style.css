@@ -1,5 +1,9 @@
 .cocktail-button {
-    margin: 10px;
-    padding: 3px;
+    margin: 5px;
+    width: 100%;
+    padding: 1px;
     height: auto;
+}
+.content-child {
+    margin-top:14px ;
 }
