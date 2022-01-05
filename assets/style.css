@@ -7,3 +7,15 @@
 .content-child {
     margin-top:14px ;
 }
+
+@media screen and (max-width: 895px) {
+    #clear-button {
+        margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: 504px) {
+    #random-btn {
+        margin-top: 8px;
+    }
+}
