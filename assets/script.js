@@ -233,7 +233,7 @@ function fetchRandomCocktail() {
           data.drinks[0]["strIngredient" + i] !== null
           ) {
           var listSection = document.createElement("li");
-          listSection.textContent = `${i}: ${
+          listSection.textContent = `${
             data.drinks[0]["strMeasure" + i]
           } ${data.drinks[0]["strIngredient" + i]}`;
           ingredientModal.appendChild(listSection);
