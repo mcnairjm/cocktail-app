@@ -298,6 +298,10 @@ function fetchWiki(event) {
   });
 }
 
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
+
 //cocktailContainerEl.addEventListener("click", fillModal);
 randomBtn.addEventListener('click',fetchRandomCocktail);
 searchFormEl.addEventListener("click",fetchEventHandler);
