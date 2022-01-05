@@ -8,14 +8,41 @@
     margin-top:14px ;
 }
 
-@media screen and (max-width: 895px) {
+@media screen and (max-width: 927px) {
     #clear-button {
-        margin-top: 8px;
+        width: 30%;
+    }
+    #search-button {
+        width: 30%;
+    }
+    #random-btn {
+        width: 30%;
     }
 }
 
-@media screen and (max-width: 504px) {
+
+@media screen and (max-width: 895px) {
+    #clear-button {
+        margin-top: 3px;
+        width: 49%;
+    }
+    #search-button {
+        width: 100%;
+    }
     #random-btn {
-        margin-top: 8px;
+        width: 49%;
+        margin-top: 4px;
     }
 }
+
+@media screen and (max-width: 527px) {
+    #random-btn {
+        /* margin-top: 4px; */
+        width: 100%;
+    }
+    #clear-button {
+        width: 100%;
+    }
+}
+   
+    
